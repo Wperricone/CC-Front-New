@@ -1,5 +1,7 @@
 import '../Styles/App.css';
 import { useQuery, gql } from '@apollo/client';
+import './NavBar';
+import NavBar from './NavBar';
 
 // const GET_LOCATIONS = gql`
 //   query GetLocations {
@@ -33,7 +35,7 @@ import { useQuery, gql } from '@apollo/client';
 function App() {
   return (
     <div>
-      <h1>Craft Circle</h1>
+      <NavBar/>
     </div>
   );
 }
