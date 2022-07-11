@@ -22,3 +22,4 @@ export default App;
 const Img = styled.img`
 width: 100vw;
 `;
+

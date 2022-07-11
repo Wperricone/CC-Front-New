@@ -26,7 +26,6 @@ border: none;
 `;
 
 const Nav = styled.nav`
-background: #F4ECDD;
 display: flex;
 justify-content: space-between;
 `;
