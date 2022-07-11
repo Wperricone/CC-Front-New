@@ -1,0 +1,34 @@
+{
+    "data": {
+      "getItems": [
+        {
+          "id": "1",
+          "name": "Purple Yarn",
+          "description": ".8 gauge purple yarn, 1 bundle",
+          "category": "Sewing/Knitting",
+          "status": "Give",
+          "available": true,
+          "amount": 1
+        },
+        {
+          "id": "2",
+          "name": "Dixon Ticonderoga",
+          "description": "The best pencil known to humankind",
+          "category": "Drawing",
+          "status": "Give",
+          "available": true,
+          "amount": 1
+        },
+        {
+          "id": "3",
+          "name": "Multicolored Construction Paper",
+          "description": "THICC paper",
+          "category": "Paper",
+          "status": "Give",
+          "available": true,
+          "amount": 5
+        }
+      ]
+    }
+  }
+  

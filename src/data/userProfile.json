@@ -1,0 +1,29 @@
+{
+    "data": {
+      "getAUser": {
+        "id": "1",
+        "email": "phillip@email.com",
+        "name": "Phillip"
+      },
+      "getUserItems": [
+        {
+          "name": "Purple Yarn",
+          "description": ".8 gauge purple yarn, 1 bundle",
+          "category": "Sewing/Knitting",
+          "status": "Give",
+          "available": true,
+          "amount": 1
+        },
+        {
+          "name": "Dixon Ticonderoga",
+          "description": "The best pencil known to humankind",
+          "category": "Drawing",
+          "status": "Give",
+          "available": true,
+          "amount": 1
+        }
+      ]
+    }
+  }
+  
+  

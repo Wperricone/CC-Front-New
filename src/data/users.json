@@ -1,0 +1,47 @@
+{
+    "data": {
+      "getUsers": [
+        {
+          "id": "1",
+          "name": "Phillip",
+          "email": "phillip@email.com"
+        },
+        {
+          "id": "2",
+          "name": "Sandisz",
+          "email": "sandisz@email.com"
+        },
+        {
+          "id": "3",
+          "name": "Sherman",
+          "email": "sherman@email.com"
+        },
+        {
+            "id": "4",
+            "name": "Whitney",
+            "email": "whitney@email.com"
+          },
+        {
+            "id": "5",
+            "name": "Alex",
+            "email": "alex@email.com"
+          },
+        {
+            "id": "6",
+            "name": "Joseph",
+            "email": "joseph@email.com"
+        },
+        {
+            "id": "7",
+            "name": "Joe",
+            "email": "joe@email.com"
+        },
+        {
+            "id": "8",
+            "name": "Steph",
+            "email": "steph@email.com"
+        }
+      ]
+    }
+  }
+  
