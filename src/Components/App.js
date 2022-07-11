@@ -1,17 +1,18 @@
 import { useQuery, gql } from '@apollo/client';
 import './NavBar';
 import NavBar from './NavBar';
+import LandingPage from './LandingPage';
+import ItemContainer from './ItemContainer';
 import styled from 'styled-components';
+
 
 
 function App() {
   return (
     <div>
       <NavBar/>
-      <Img src={require ("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")}/>
-      <div>
-      Placeholder for Craft Container
-      </div>
+      <LandingPage />
+      <ItemContainer  /> 
     </div>
   );
 }
