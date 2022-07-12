@@ -4,7 +4,7 @@ describe('Craft Circle landing page view', () => {
     cy.visit("http://localhost:3000")
   });
 
-  it('Should have three inputs', () => {
+  it.skip('Should have three inputs', () => {
     cy.get('.add-item')
     cy.get('input')
     .eq(0)
@@ -14,7 +14,7 @@ describe('Craft Circle landing page view', () => {
     .eq(2)
   });
 
-  it('Should be able to type in any input', () => {
+  it.skip('Should be able to type in any input', () => {
     cy.get('input')
     .eq(0)
     .type('pencil')
@@ -23,14 +23,14 @@ describe('Craft Circle landing page view', () => {
     .should('have.value', 'pencil')
   });
 
-  it('Should have a thank you message and a button', () => {
+  it.skip('Should have a thank you message and a button', () => {
     cy.get('p')
     .contains('Thank you for contributing to the crafting community! Please fill out the following form:')
     cy.get('button')
     .contains('Add Item')
   });
 
-  it('Should be able to add an item', () => {
+  it.skip('Should be able to add an item', () => {
     cy.get('input')
     .eq(0)
     .type('pencil')

@@ -4,7 +4,7 @@ describe('Craft Circle landing page view', () => {
     cy.visit("http://localhost:3000")
   });
 
-  it('Should have a bio section with a picture, name and contact info', () => {
+  it.skip('Should have a bio section with a picture, name and contact info', () => {
     cy.get('.bio')
     .should(exist)
     cy.get('.profile-picture')
@@ -16,7 +16,7 @@ describe('Craft Circle landing page view', () => {
     .contains('Contact info/ Location')
   });
 
-  it('Should have an available items section with a title, button and a place for craft carda', () => {
+  it.skip('Should have an available items section with a title, button and a place for craft carda', () => {
     cy.get('.available-items')
     .should('exist')
     cy.get('h3')
