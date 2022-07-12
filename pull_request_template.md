@@ -1,15 +1,7 @@
-## What does this PR actually DO? / Issue you solved
+## What was changed:
 
+## Explain the reason for changes:
+(If there is no spec file how were things tested)
 
-## Type of Changes:
-- [ ] New feature
-- [ ] Bug fix
-- [ ] Refactor
-
-## Where are the Changes:
-
-
-## How was this tested:
-
-
-## What are the relevant tickets:
+## Link to issue:
+(Delete if no issue)
