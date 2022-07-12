@@ -7,7 +7,7 @@ const NavBar = () => {
 		<Nav>
 			<Img className="logo" src={require ("../assets/CraftCircleLogo-06.png")} alt="craft circle logo"/>
 			<div>
-				<Button>
+				<Button className='nav-button'>
 					<h3>All Crafts</h3>
 				</Button>
 				<Button>

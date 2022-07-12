@@ -9,7 +9,7 @@ const ItemExpanded = () => {
         <h3>amount</h3>
         <p>description</p>
         <p>crafter</p>
-        <button className="contact-button"><a href="mailto:someone@example.com">contact crafter</a></button>
+        <button className="contact-button"><a href="mailto:someone@example.com">Contact Crafter</a></button>
     </section>
 }
 
