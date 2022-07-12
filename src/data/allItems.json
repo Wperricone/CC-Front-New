@@ -30,6 +30,46 @@
           "available": true,
           "amount": 5,
           "userId": 1
+        },
+        {
+          "id": "4",
+          "name": "Multicolored Construction Paper",
+          "description": "THICC paper",
+          "category": "Paper",
+          "status": "Give",
+          "available": true,
+          "amount": 5,
+          "userId": 1
+        },
+        {
+          "id": "5",
+          "name": "Multicolored Construction Paper",
+          "description": "THICC paper",
+          "category": "Paper",
+          "status": "Give",
+          "available": true,
+          "amount": 5,
+          "userId": 1
+        },
+        {
+          "id": "6",
+          "name": "Multicolored Construction Paper",
+          "description": "THICC paper",
+          "category": "Paper",
+          "status": "Give",
+          "available": true,
+          "amount": 5,
+          "userId": 1
+        },
+        {
+          "id": "7",
+          "name": "Multicolored Construction Paper",
+          "description": "THICC paper",
+          "category": "Paper",
+          "status": "Give",
+          "available": true,
+          "amount": 5,
+          "userId": 1
         }
       ]
     }
