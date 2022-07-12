@@ -1,10 +1,13 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@2
+  steps: 
+    - run:
+      command: npm start
 workflows:
   build:
     jobs:
       # "cypress" is the name of the imported orb
       # "run" is the name of the job defined in Cypress orb 
       - cypress/run
-        wait-on: 'http://localhost:3000'
+#        wait-on: 'http://localhost:3000'
