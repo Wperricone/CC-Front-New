@@ -10,7 +10,7 @@ const ItemContainer = () => {
    const items = itemData.map(item => {
       return (
          <ItemCard
-         key={item.id}
+            key={item.id}
          />
       )
    })
@@ -25,8 +25,11 @@ const ItemContainer = () => {
 export default ItemContainer
 
 const ItemContainerSection = styled.section`
+padding: 60px;
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 background: #F4ECDD;
-gap: 20px;
+gap: 60px;
+justify-items: center;
+align-items: center;
 `

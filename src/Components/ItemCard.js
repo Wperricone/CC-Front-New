@@ -5,9 +5,11 @@ const ItemCard = () => {
     return (
         <ItemCardSection className="item-card">
            <ItemCardImg className="stock-img" src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")} alt="craft-item" />
-           <p>Craft Name</p>
-           <p>name</p>
-           <p>amount</p>
+           <ItemBoxDiv>
+                <ItemH4>Craft Name</ItemH4>
+                <ItemP>Amount: 5</ItemP>
+                <ItemP>Crafty Joe</ItemP>
+           </ItemBoxDiv>
         </ItemCardSection>
     )
 }
@@ -16,15 +18,39 @@ export default ItemCard
 
 
 const ItemCardImg = styled.img`
-    max-width: 5vw;
+    width: 200px;
+    max-height: 200px;
+    border-radius: 25px;
 `;
 
+const ItemH4 = styled.h4`
+    font-size: 20pt;
+    margin: 0;
+`
+const ItemP = styled.p`
+    font-size: 16pt;
+    margin-top: 10px;
+    margin-bottom: 20px;
+`
+
+const ItemBoxDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+`
+
 const ItemCardSection = styled.section`
-    border: solid black 2px;
-    border-radius: 20px;
-    width: 400px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 25px;
+    width: 470px;
+    height: 220px;
     background: white;
-    padding: 20px;
+    padding: 30px;
+    color: #AD92C0;
+    box-shadow: 15px 15px 0px #AD92C0;
 `;
 
 //DATA 
