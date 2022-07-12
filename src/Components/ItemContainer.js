@@ -11,18 +11,20 @@ const ItemContainer = () => {
       return (
          <ItemCard
             key={item.id}
+            name={item.name}
+            amount={item.amount}
          />
-      )
-   })
+      );
+   });
 
    return (
       <ItemContainerSection className="item-container">
          {items}
       </ItemContainerSection>
-   )
+   );
 }
 
-export default ItemContainer
+export default ItemContainer;
 
 const ItemContainerSection = styled.section`
 padding: 60px;
@@ -32,4 +34,4 @@ background: #F4ECDD;
 gap: 60px;
 justify-items: center;
 align-items: center;
-`
+`;
