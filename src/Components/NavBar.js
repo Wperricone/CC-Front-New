@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 const NavBar = () => {
   return (
@@ -10,23 +10,34 @@ const NavBar = () => {
         src={require("../assets/CraftCircleLogo-06.png")}
         alt="craft circle logo"
       />
+      {/* <ThemeProvider theme={activeStyle}> */}
       <div>
-        <NavLink to={"/"}>
+        <NavLink
+          to={"/"}
+          // theme={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
           <Button className="nav-button">
             <h3>All Crafts</h3>
           </Button>
         </NavLink>
-        <NavLink to={"about"}>
+        <NavLink
+          to={"about"}
+          // theme={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
           <Button className="nav-button">
             <h3>About</h3>
           </Button>
         </NavLink>
-        <NavLink to={"profile"}>
+        <NavLink
+          to={"profile"}
+          // theme={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
           <Button className="nav-button">
             <h3>Profile</h3>
           </Button>
         </NavLink>
       </div>
+      {/* </ThemeProvider> */}
     </Nav>
   );
 };
@@ -39,8 +50,11 @@ const Button = styled.button`
   font-size: 25px;
   color: #a7c891;
   margin: 25px;
-  &: hover {
+  .active & {
     color: #e3976e;
+  }
+  &: hover {
+    cursor: pointer;
   }
 `;
 
@@ -53,3 +67,11 @@ const Nav = styled.nav`
 const Img = styled.img`
   height: 150px;
 `;
+
+// const activeStyle =
+
+// const Wrapper = styled.div`
+//   &.NavLink {
+//     background: blue;
+//   }
+// `;
