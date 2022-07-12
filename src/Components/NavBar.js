@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
 const NavBar = () => {
   return (
@@ -10,34 +10,23 @@ const NavBar = () => {
         src={require("../assets/CraftCircleLogo-06.png")}
         alt="craft circle logo"
       />
-      {/* <ThemeProvider theme={activeStyle}> */}
       <div>
-        <NavLink
-          to={"/"}
-          // theme={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
+        <NavLink to={"/"}>
           <Button className="nav-button">
-            <h3>All Crafts</h3>
+            <H3>All Crafts</H3>
           </Button>
         </NavLink>
-        <NavLink
-          to={"about"}
-          // theme={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
+        <NavLink to={"about"}>
           <Button className="nav-button">
-            <h3>About</h3>
+            <H3>About</H3>
           </Button>
         </NavLink>
-        <NavLink
-          to={"profile"}
-          // theme={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
+        <NavLink to={"profile"}>
           <Button className="nav-button">
-            <h3>Profile</h3>
+            <H3>Profile</H3>
           </Button>
         </NavLink>
       </div>
-      {/* </ThemeProvider> */}
     </Nav>
   );
 };
@@ -50,12 +39,34 @@ const Button = styled.button`
   font-size: 25px;
   color: #a7c891;
   margin: 25px;
+	display: inline-block;
+	position: relative;
   .active & {
     color: #e3976e;
   }
-  &: hover {
+	&: hover {
     cursor: pointer;
   }
+	&: after {
+	  background-color: #e3976e;
+	  bottom: 0;
+	  content: '';
+	  height: 4px;
+	  left: 0;
+	  position: absolute;
+	  transform: scaleX(0);
+	  transform-origin: bottom right;
+	  transition: transform 0.25s ease-out;
+	  width: 100%;
+	}
+	&: hover:after {
+	  transform: scaleX(1);
+	  transform-origin: bottom left;
+	}
+`;
+
+const H3 = styled.h3`
+  margin: 0px;
 `;
 
 const Nav = styled.nav`
@@ -67,11 +78,3 @@ const Nav = styled.nav`
 const Img = styled.img`
   height: 150px;
 `;
-
-// const activeStyle =
-
-// const Wrapper = styled.div`
-//   &.NavLink {
-//     background: blue;
-//   }
-// `;
