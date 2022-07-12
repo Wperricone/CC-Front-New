@@ -1,6 +1,6 @@
 describe('Craft Circle landing page view', () => {
   beforeEach(() => {
-    cy.intercept("craft-circle-be.herokuapp.com/graphql", {fixture: "userProfile.json"})
+    //cy.intercept("craft-circle-be.herokuapp.com/graphql", {fixture: "userProfile.json"})
     cy.visit("http://localhost:3000")
   });
 
