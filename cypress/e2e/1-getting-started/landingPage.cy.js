@@ -9,13 +9,16 @@ describe('Craft Circle landing page view', () => {
     .should('exist')
   });
 
-  it('Should have two buttons', () => {
+  it('Should have three buttons', () => {
     cy.get('.nav-button')
     .eq(0)
     .contains('All Crafts')
     cy.get('.nav-button')
     .eq(1)
-    .contains('Profile')
+    .contains('About')
+    cy.get(".nav-button")
+    .eq(2)
+    .contains("Profile")
   });
 
   it('Should have an About section', () => {
