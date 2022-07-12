@@ -6,4 +6,5 @@ workflows:
     jobs:
       # "cypress" is the name of the imported orb
       # "run" is the name of the job defined in Cypress orb 
-      - test
+      - cypress/run
+        wait-on: 'http-get://localhost:3000'
