@@ -11,6 +11,9 @@ const NavBar = () => {
 					<h3>All Crafts</h3>
 				</Button>
 				<Button>
+					<h3>About</h3>
+				</Button>
+				<Button>
 					<h3>Profile</h3>
 				</Button>
 			</div>
@@ -23,13 +26,20 @@ export default NavBar;
 const Button = styled.button`
 background: #F4ECDD;
 border: none;
+font-size: 25px;
+color: #A7C891;
+margin: 25px;
+&: hover {
+	color: #E3976E
+} 
 `;
 
 const Nav = styled.nav`
 display: flex;
 justify-content: space-between;
+padding: 25px;
 `;
 
 const Img = styled.img`
-height: 100px;
+height: 150px;
 `
