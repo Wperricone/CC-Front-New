@@ -22,12 +22,12 @@ describe('Craft Circle landing page view', () => {
     cy.get('.search-and-about-container')
     cy.get('h2')
     .contains('About')
-  })
+  });
 
   it('Should have a search bar', () => {
     cy.get('.search-bar')
     cy.get('.search-button')
-  })
+  });
 
 
 }
