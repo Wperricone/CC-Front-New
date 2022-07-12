@@ -3,17 +3,29 @@ import styled from 'styled-components';
 
 const ItemCard = () => {
     return (
-        <section className="item-card">
-           <img className="stock-img" src="" alt="craft-item" />
+        <ItemCardSection className="item-card">
+           <ItemCardImg className="stock-img" src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")} alt="craft-item" />
            <p>Craft Name</p>
            <p>name</p>
            <p>amount</p>
-        </section>
+        </ItemCardSection>
     )
 }
 
 export default ItemCard
 
+
+const ItemCardImg = styled.img`
+    max-width: 5vw;
+`;
+
+const ItemCardSection = styled.section`
+    border: solid black 2px;
+    border-radius: 20px;
+    width: 400px;
+    background: white;
+    padding: 20px;
+`;
 
 //DATA 
 // id, userid, name, type, description, available, quantity, exchange_status
