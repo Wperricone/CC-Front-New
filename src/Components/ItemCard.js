@@ -6,8 +6,8 @@ const ItemCard = () => {
         <section className="item-card">
            <img className="stock-img" src="" alt="craft-item" />
            <p>Craft Name</p>
-           <p>name</p>
-           <p>amount</p>
+           <p>Name</p>
+           <p>Amount</p>
         </section>
     )
 }

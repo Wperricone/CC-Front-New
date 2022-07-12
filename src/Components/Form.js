@@ -8,7 +8,7 @@ const Form = () => {
             <input type="text" placeholder="item name"></input>
             <input type="text" placeholder="amount"></input>
             <input type="text" placeholder="description"></input>
-            <button>add item</button>
+            <button>Add Item</button>
         </form>
     )
 }

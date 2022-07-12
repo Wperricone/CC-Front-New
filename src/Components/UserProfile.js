@@ -7,12 +7,12 @@ const UserProfile = () => {
             <section className="bio">
                 <img className="profile-picture" src="" alt="crafter profile picture"/>
                 <h2>Name</h2>
-                <h3>contact info/ location</h3>
+                <h3>Contact info/ Location</h3>
             </section>
             <section className="available-items">
-                <h3>Supplies I'm Offering</h3>
-                <button>donate</button>
-                <div>
+                <h3>Supplies I am Offering</h3>
+                <button>Donate</button>
+                <div className="user-cards">
                     craft cards would go here 
                 </div>
             </section>

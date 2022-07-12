@@ -12,7 +12,7 @@ const LandingPage = () => {
                 <form className="search-bar">
                     <label>Search</label>
                     <input type="text"></input>
-                    <button>search</button>
+                    <button className="search-button">search</button>
                 </form>
             </div>
         </section>

@@ -5,14 +5,14 @@ import styled from 'styled-components';
 
 const NavBar = () => {
 	return (
-		<Nav>
+		<Nav className='nav-bar'>
 			<img>
 			</img>
 			<div>
-				<Button>
+				<Button className='nav-button'>
 					<h3>All Crafts</h3>
 				</Button>
-				<Button>
+				<Button className='nav-button'>
 					<h3>Profile</h3>
 				</Button>
 			</div>
