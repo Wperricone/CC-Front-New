@@ -12,7 +12,7 @@ const UserProfile = () => {
       </section>
       <section className="available-items">
         <h3>Supplies I am Offering</h3>
-        <Button name={"Add Craft"} />
+        <Button name={"Add Craft"} link={"/contribution"} />
         <div className="user-cards">craft cards would go here</div>
       </section>
     </section>

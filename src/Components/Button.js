@@ -1,8 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Button = ({ name }) => {
-  return <StyledButton>{name}</StyledButton>;
+const Button = ({ name, link, action }) => {
+  return (
+    <BtnContainer>
+      <Link to={link}>
+        <StyledButton onClick={action}>{name}</StyledButton>
+      </Link>
+    </BtnContainer>
+  );
 };
 
 export default Button;
@@ -28,4 +35,11 @@ const StyledButton = styled.button`
     margin-left: 5px;
     box-shadow: 0px 0px 0px;
   }
+`;
+
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
 `;
