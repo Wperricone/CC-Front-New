@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 
-const LandingPage = () => {
+const LandingPage = ({ itemData }) => {
+
   return (
     <LandingPageSection className="landing-page">
       <LandingImage
@@ -10,7 +11,7 @@ const LandingPage = () => {
         src={require("../assets/bannerImage.png")}
         alt="crafts-in-action"
       />
-      <ItemContainer />
+      <ItemContainer itemData={itemData} />
     </LandingPageSection>
   );
 };
