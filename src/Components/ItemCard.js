@@ -9,9 +9,9 @@ const ItemCard = ({ name, amount, id }) => {
             <ItemCardSection className="item-card">
                 <ItemCardImg className="stock-img" src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")} alt="craft-item" />
                 <ItemBoxDiv>
-                        <ItemH4>{name}</ItemH4>
-                        <ItemP>Amount: {amount}</ItemP>
-                        <ItemP>Crafty Joe</ItemP>
+                    <ItemH4>{name}</ItemH4>
+                    <ItemP>Amount: {amount}</ItemP>
+                    <ItemP>Crafty Joe</ItemP>
                 </ItemBoxDiv>
             </ItemCardSection>
         </Link>
