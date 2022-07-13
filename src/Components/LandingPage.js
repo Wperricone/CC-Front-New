@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 
+import response from "../data/allItems.json";
+
 const LandingPage = () => {
+
+  const [itemData, setItemData] = useState([]);
+   
+  useEffect(() => {
+     setItemData(response.data.getItems);
+  }, []);
+
   return (
     <LandingPageSection className="landing-page">
       <LandingImage
@@ -10,7 +19,7 @@ const LandingPage = () => {
         src={require("../assets/bannerImage.png")}
         alt="crafts-in-action"
       />
-      <ItemContainer />
+      <ItemContainer itemData={itemData} />
     </LandingPageSection>
   );
 };

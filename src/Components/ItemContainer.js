@@ -2,11 +2,8 @@ import styled from 'styled-components';
 import React from "react";
 import ItemCard from './ItemCard';
 
-import response from "../data/allItems.json"
+const ItemContainer = ({ itemData }) => {
 
-const ItemContainer = () => {
-
-   const itemData = response.data.getItems;
    const items = itemData.map(item => {
       return (
          <ItemCard
