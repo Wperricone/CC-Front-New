@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 
-import response from "../data/allItems.json";
-
-const LandingPage = () => {
-
-  const [itemData, setItemData] = useState([]);
-   
-  useEffect(() => {
-     setItemData(response.data.getItems);
-  }, []);
+const LandingPage = ({ itemData }) => {
 
   return (
     <LandingPageSection className="landing-page">

@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import "./NavBar";
 import NavBar from "./NavBar";
@@ -11,12 +12,21 @@ import ItemExpanded from "./ItemExpanded";
 import Login from "./Login";
 import NoMatch from "./NoMatch";
 
+import response from "../data/allItems.json";
+
 function App() {
+
+  const [itemData, setItemData] = useState([]);
+   
+  useEffect(() => {
+     setItemData(response.data.getItems);
+  }, []);
+
   return (
     <main>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/" element={<LandingPage  itemData={itemData} />} />
         <Route exact path="about" element={<AboutPage />} />
         <Route exact path="profile" element={<UserProfile />} />
         <Route exact path="contribution" element={<Form />} />
