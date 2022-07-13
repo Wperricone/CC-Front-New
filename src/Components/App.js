@@ -22,15 +22,19 @@ function App() {
      setItemData(response.data.getItems);
   }, []);
 
+  const findItem = (id) => {  
+    return itemData.find(item => item.id === id)
+  }
+
   return (
     <main>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<LandingPage  itemData={itemData} />} />
+        <Route exact path="/" element={<LandingPage itemData={itemData} />} />
         <Route exact path="about" element={<AboutPage />} />
         <Route exact path="profile" element={<UserProfile />} />
         <Route exact path="contribution" element={<Form />} />
-        <Route exact path="craft/:craftId" element={<ItemExpanded />} />
+        <Route exact path="craft/:craftId" element={<ItemExpanded findItem={findItem} />} />
         {/* <Route exact path="confirmation" element={} /> */}
         <Route exact path="login" element={<Login />} />
         <Route path="*" element={<NoMatch />} />
