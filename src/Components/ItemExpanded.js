@@ -71,7 +71,7 @@ const AmountP = styled.p`
     font-size: 14pt;
     color: #A18E96;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 50px;
 `
 
 const ItemExpandedSection = styled.section`
@@ -81,7 +81,6 @@ const ItemExpandedSection = styled.section`
 const TitleAmountDiv = styled.div`
     width: 70%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 `;
 
