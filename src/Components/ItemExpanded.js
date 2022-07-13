@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from 'styled-components';
+import Button from "./Button";
 
 import response from "../data/allItems.json";
 
@@ -30,8 +31,8 @@ const ItemExpanded = () => {
                     <AmountP>Amount: {item.amount}</AmountP>
                 </TitleAmountDiv>
                 <DescP>{item.description}</DescP>
-                <NameP>Crafty Joe</NameP>
-                <button className="contact-button"><a href="mailto:someone@example.com">Contact Crafter</a></button>
+                {/* <button className="contact-button"><a href="mailto:someone@example.com">Contact Crafter</a></button> */}
+                <Button name="Contact Crafter" link="" />
             </ItemExpandedDiv>
         </ItemExpandedSection>
     )
@@ -62,7 +63,7 @@ const NameP = styled.p`
 
 const CategoryP = styled.p`
     font-size: 16pt;
-    margin: 0;
+    margin-bottom: 0;
     color: #A18E96;
     font-weight: bold;
 `
