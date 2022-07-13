@@ -31,7 +31,6 @@ const ItemContainerSection = styled.section`
 padding: 60px;
 display: grid;
 grid-template-columns: repeat(2, 1fr);
-background: #F4ECDD;
 gap: 60px;
 justify-items: center;
 align-items: center;
