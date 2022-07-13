@@ -15,17 +15,17 @@ const StyledButton = styled.button`
   border: 0px;
   border-radius: 25px;
   height: 40px;
-  margin: 2%;
   background: white;
   color: #a7c891;
   box-shadow: 5px 5px 0px #a7c891;
   &: hover {
     cursor: pointer;
-    background: #a7c891;
-    color: white;
-    box-shadow: 5px 5px 0px white;
+    color: #e3976e;
+    box-shadow: 5px 5px 0px #e3976e;
   }
-  &: click {
-    box-shadow: 0px;
+  &: active {
+    margin-top: 5px;
+    margin-left: 5px;
+    box-shadow: 0px 0px 0px;
   }
 `;
