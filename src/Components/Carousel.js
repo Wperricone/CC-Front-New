@@ -12,9 +12,18 @@ const Carousel = () => {
         alt="crafts-in-action"
       />
       <IndicatorBar>
-        <Indicator onClick={() => setImage("bannerImage1.png")}></Indicator>
-        <Indicator onClick={() => setImage("bannerImage2.png")}></Indicator>
-        <Indicator onClick={() => setImage("bannerImage3.png")}></Indicator>
+        <Indicator
+          active={currentImage === "bannerImage1.png"}
+          onClick={() => setImage("bannerImage1.png")}
+        ></Indicator>
+        <Indicator
+          active={currentImage === "bannerImage2.png"}
+          onClick={() => setImage("bannerImage2.png")}
+        ></Indicator>
+        <Indicator
+          active={currentImage === "bannerImage3.png"}
+          onClick={() => setImage("bannerImage3.png")}
+        ></Indicator>
       </IndicatorBar>
     </div>
   );
@@ -41,8 +50,6 @@ const Indicator = styled.div`
   margin: 2%;
   border-radius: 25px;
   background: #b7c1dc;
+  cursor: pointer;
+  ${({ active }) => active && `background: #ad92c0;`}
 `;
-
-// .active & {
-//   background: #a7c891;
-// }
