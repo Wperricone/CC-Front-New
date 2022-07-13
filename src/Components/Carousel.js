@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Carousel = () => {
-  const [currentImage, setImage] = useState("bannerImage.png");
+  const [currentImage, setImage] = useState("bannerImage1.png");
 
   return (
     <div>
       <LandingImage
         className="landing-page-img"
-        src={require(`../assets/${currentImage}`)}
+        src={require(`../assets/bannerImages/${currentImage}`)}
         alt="crafts-in-action"
       />
       <IndicatorBar>
-        <Indicator onClick={() => setImage("bannerImage.png")}></Indicator>
-        <Indicator onClick={() => setImage("bannerImage.png")}></Indicator>
-        <Indicator onClick={() => setImage("bannerImage.png")}></Indicator>
+        <Indicator onClick={() => setImage("bannerImage1.png")}></Indicator>
+        <Indicator onClick={() => setImage("bannerImage2.png")}></Indicator>
+        <Indicator onClick={() => setImage("bannerImage3.png")}></Indicator>
       </IndicatorBar>
     </div>
   );
