@@ -11,6 +11,7 @@ const ItemContainer = () => {
       return (
          <ItemCard
             key={item.id}
+            id={item.id}
             name={item.name}
             amount={item.amount}
          />
