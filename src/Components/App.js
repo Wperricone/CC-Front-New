@@ -14,6 +14,39 @@ import NoMatch from "./NoMatch";
 
 import response from "../data/allItems.json";
 
+
+// const GET_DOGS = gql`
+//   query GetDogs {
+//     dogs {
+//       id
+//       breed
+//     }
+//   }
+// `;
+
+const GET_ITEMS = gql`
+  query getItems {
+   getItems{
+    id
+    name
+    description
+    category
+    status
+    available
+    amount
+    userId
+   }
+  }
+`;
+
+const DisplayAllItems = () => {
+  const { loading, error, data } = useQuery(GET_ITEMS);
+  console.log(data)
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error</p>;
+  return <h1>howdy</h1>
+}
+
 function App() {
 
   const [itemData, setItemData] = useState([]);
@@ -28,6 +61,7 @@ function App() {
 
   return (
     <main>
+      <DisplayAllItems /> 
       <NavBar />
       <Routes>
         <Route exact path="/" element={<LandingPage itemData={itemData} />} />
