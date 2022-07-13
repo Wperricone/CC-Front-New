@@ -12,21 +12,9 @@ import ItemExpanded from "./ItemExpanded";
 import Login from "./Login";
 import NoMatch from "./NoMatch";
 
-import response from "../data/allItems.json";
-
-
-// const GET_DOGS = gql`
-//   query GetDogs {
-//     dogs {
-//       id
-//       breed
-//     }
-//   }
-// `;
-
 const GET_ITEMS = gql`
   query getItems {
-   getItems{
+   items: getItems {
     id
     name
     description
@@ -39,32 +27,20 @@ const GET_ITEMS = gql`
   }
 `;
 
-const DisplayAllItems = () => {
-  const { loading, error, data } = useQuery(GET_ITEMS);
-  console.log(data)
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
-  return <h1>howdy</h1>
-}
-
 function App() {
-
-  const [itemData, setItemData] = useState([]);
-   
-  useEffect(() => {
-     setItemData(response.data.getItems);
-  }, []);
+  const { loading, error, data } = useQuery(GET_ITEMS); 
 
   const findItem = (id) => {  
-    return itemData.find(item => item.id === id)
+    return data.items.find(item => item.id === id)
   }
-
+  
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error</p>;
   return (
-    <main>
-      <DisplayAllItems /> 
+    <main> 
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<LandingPage itemData={itemData} />} />
+        <Route exact path="/" element={<LandingPage itemData={data.items} />} />
         <Route exact path="about" element={<AboutPage />} />
         <Route exact path="profile" element={<UserProfile />} />
         <Route exact path="contribution" element={<Form />} />
