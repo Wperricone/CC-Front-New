@@ -3,11 +3,11 @@ import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 import Carousel from "./Carousel";
 
-const LandingPage = () => {
+const LandingPage = ({ itemData }) => {
   return (
     <LandingPageSection className="landing-page">
       <Carousel />
-      <ItemContainer />
+      <ItemContainer itemData={itemData} />
     </LandingPageSection>
   );
 };

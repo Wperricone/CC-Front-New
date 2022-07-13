@@ -1,21 +1,24 @@
+import { isNonEmptyArray } from "@apollo/client/utilities";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
-const ItemCard = ({ name, amount }) => {
+const ItemCard = ({ name, amount, id }) => {
     return (
-        <ItemCardSection className="item-card">
-           <ItemCardImg className="stock-img" src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")} alt="craft-item" />
-           <ItemBoxDiv>
-                <ItemH4>{name}</ItemH4>
-                <ItemP>Amount: {amount}</ItemP>
-                <ItemP>Crafty Joe</ItemP>
-           </ItemBoxDiv>
-        </ItemCardSection>
+        <Link style={{textDecoration: "none"}} to={`/craft/${id}`}>
+            <ItemCardSection className="item-card">
+                <ItemCardImg className="stock-img" src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")} alt="craft-item" />
+                <ItemBoxDiv>
+                    <ItemH4>{name}</ItemH4>
+                    <ItemP>Amount: {amount}</ItemP>
+                    <ItemP>Crafty Joe</ItemP>
+                </ItemBoxDiv>
+            </ItemCardSection>
+        </Link>
     );
 }
 
 export default ItemCard;
-
 
 const ItemCardImg = styled.img`
     width: 200px;
