@@ -39,7 +39,7 @@ const Button = styled.button`
   border: none;
   font-size: 25px;
   color: ${colors.craftGreen};
-  margin: 25px;
+  margin-left: 50px;
 	display: inline-block;
 	position: relative;
   .active & {
@@ -73,9 +73,12 @@ const H3 = styled.h3`
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: 25px;
+  align-items: center;
+  margin: 2%;
+  margin-left: 7.5vw;
+  margin-right: 7.5vw;
 `;
 
 const Img = styled.img`
-  height: 150px;
+  width: 10vw;
 `;
