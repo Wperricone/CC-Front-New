@@ -2,12 +2,12 @@ import { isNonEmptyArray } from "@apollo/client/utilities";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import colors from "../constants/colors";
 
-const ItemCard = ({ name, amount, id }) => {
+const ItemCard = ({ name, amount, id, color }) => {
+
     return (
         <Link style={{textDecoration: "none"}} to={`/craft/${id}`}>
-            <ItemCardSection className="item-card">
+            <ItemCardSection style={{color: `${color}`, boxShadow: `20px 20px 0px ${color}`}} className="item-card">
                 <ItemCardImg className="stock-img" src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")} alt="craft-item" />
                 <ItemBoxDiv>
                     <ItemH4>{name}</ItemH4>
@@ -53,8 +53,6 @@ const ItemCardSection = styled.section`
     height: 220px;
     background: white;
     padding: 30px;
-    color: ${colors.craftPurple};
-    box-shadow: 20px 20px 0px ${colors.craftPurple};
 `;
 
 //DATA 
