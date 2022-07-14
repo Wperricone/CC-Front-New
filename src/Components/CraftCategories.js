@@ -1,75 +1,106 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../constants/colors";
 
 const CraftCategories = () => {
   return (
     <>
       <SectionTitle>Categories:</SectionTitle>
       <CategorySection>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftOrange }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-08.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>sewing/knitting</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftPurple }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-09.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>paper</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftBlue }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-10.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>baking</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftGreen }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-11.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>jewelry</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftPink }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-12.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>scrapbook/floral</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftGreen }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-13.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>painting</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftBlue }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-14.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>drawing</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftPink }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-15.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>wood working</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftOrange }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-16.png`)}
             alt="crafts-in-action"
           />
           <CategoryName>pottery</CategoryName>
         </CategoryBox>
-        <CategoryBox style={{ background: "blue" }}>
+        <CategoryBox
+          style={{ background: colors.craftPurple }}
+          onClick={() => console.log("yeehaw")}
+        >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-17.png`)}
             alt="crafts-in-action"
@@ -85,9 +116,9 @@ export default CraftCategories;
 
 const SectionTitle = styled.h1`
   align-self: start;
-  color: purple;
+  color: ${colors.craftPurple};
   font-size: 35px;
-  font-weight: 700;
+  font-weight: 900;
   margin-left: 7.5vw;
 `;
 
@@ -113,9 +144,11 @@ const CategoryBox = styled.div`
   align-items: center;
   cursor: pointer;
   &: hover {
-    cursor: pointer;
-    color: #e3976e;
-    box-shadow: 5px 5px 0px #e3976e;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-top: 0;
+    margin-left: 0;
+    box-shadow: 12px 12px 0px ${colors.craftGrey};
 `;
 
 const CategoryIcon = styled.img`
@@ -125,6 +158,6 @@ const CategoryIcon = styled.img`
 
 const CategoryName = styled.p`
   font-weight: 700;
-  color: white;
+  color: ${colors.craftWhite};
   margin: 0;
 `;
