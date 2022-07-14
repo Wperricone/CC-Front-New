@@ -21,7 +21,7 @@ const AboutPage = () => {
         <CtaImage src={require("../assets/bannerImages/ctaImage1.png")} alt="brightly-colored woven rounds"/>
         <CtaContainer>
           <CtaP>Whether you're looking to share supplies or need to source something for your next creative projecct, Craft Cirle is the virtal marketplace for you. Click below to join our community of Crafters today and get crafting!</CtaP>
-          <Button name="Get started" link="" action="" />
+          <Button name="Get started" link=""/>
         </CtaContainer>
       </JoinCTAContainer>
       </BackgroundImgContainer>
