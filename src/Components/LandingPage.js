@@ -1,29 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
+import Carousel from "./Carousel";
 
 const LandingPage = ({ itemData }) => {
-
   return (
     <LandingPageSection className="landing-page">
-      <LandingImage
-        className="landing-page-img"
-        src={require("../assets/bannerImage.png")}
-        alt="crafts-in-action"
-      />
+      <Carousel />
       <ItemContainer itemData={itemData} />
     </LandingPageSection>
   );
 };
 
 export default LandingPage;
-
-const LandingImage = styled.img`
-  width: 80vw;
-  border-radius: 25px;
-  box-shadow: 40px 40px rgba(239, 203, 199, 1);
-  margin: 10px;
-`;
 
 const LandingPageSection = styled.section`
   display: flex;
