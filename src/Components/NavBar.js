@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import colors from "../constants/colors";
 
 const NavBar = () => {
   return (
@@ -34,21 +35,21 @@ const NavBar = () => {
 export default NavBar;
 
 const Button = styled.button`
-  background: #f4ecdd;
+  background: ${colors.craftWhite};
   border: none;
   font-size: 25px;
-  color: #a7c891;
+  color: ${colors.craftGreen};
   margin: 25px;
 	display: inline-block;
 	position: relative;
   .active & {
-    color: #e3976e;
+    color: ${colors.craftOrange};
   }
 	&: hover {
     cursor: pointer;
   }
 	&: after {
-	  background-color: #e3976e;
+	  background-color: ${colors.craftOrange};
 	  bottom: 0;
 	  content: '';
 	  height: 4px;
