@@ -2,6 +2,7 @@ import { isNonEmptyArray } from "@apollo/client/utilities";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
+import colors from "../constants/colors";
 
 const ItemCard = ({ name, amount, id }) => {
     return (
@@ -52,8 +53,8 @@ const ItemCardSection = styled.section`
     height: 220px;
     background: white;
     padding: 30px;
-    color: #AD92C0;
-    box-shadow: 20px 20px 0px #AD92C0;
+    color: ${colors.craftPurple};
+    box-shadow: 20px 20px 0px ${colors.craftPurple};
 `;
 
 //DATA 
