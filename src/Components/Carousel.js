@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import colors from "../constants/colors";
 
 const Carousel = () => {
   const [currentImage, setImage] = useState("bannerImage1.png");
@@ -34,7 +35,7 @@ export default Carousel;
 const LandingImage = styled.img`
   width: 85vw;
   border-radius: 25px;
-  box-shadow: 30px 30px rgba(239, 203, 199, 1);
+  box-shadow: 30px 30px ${colors.craftPink};
   margin: 10px;
 `;
 
@@ -49,7 +50,7 @@ const Indicator = styled.div`
   height: 15px;
   margin: 2%;
   border-radius: 25px;
-  background: #b7c1dc;
+  background: ${colors.craftBlue};
   cursor: pointer;
-  ${({ active }) => active && `background: #ad92c0;`}
+  ${({ active }) => active && `background: ${colors.craftPurple};`}
 `;

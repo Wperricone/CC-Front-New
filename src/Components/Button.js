@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import colors from "../constants/colors";
 
 const Button = ({ name, link, action }) => {
   return (
@@ -23,12 +24,12 @@ const StyledButton = styled.button`
   border-radius: 25px;
   height: 40px;
   background: white;
-  color: #a7c891;
-  box-shadow: 5px 5px 0px #a7c891;
+  color: ${colors.craftGreen};
+  box-shadow: 5px 5px 0px ${colors.craftGreen};
   &: hover {
     cursor: pointer;
-    color: #e3976e;
-    box-shadow: 5px 5px 0px #e3976e;
+    color: ${colors.craftOrange};
+    box-shadow: 5px 5px 0px ${colors.craftOrange};
   }
   &: active {
     margin-top: 5px;

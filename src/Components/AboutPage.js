@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../constants/colors";
 
 const AboutPage = () => {
   return (
@@ -20,11 +21,11 @@ const AboutPage = () => {
 export default AboutPage;
 
 const AboutH2 = styled.h2`
-  color: #ad92c0;
+  color: ${colors.craftPurple};
   font-size: 30px;
 `;
 const AboutP = styled.p`
-  color: #ad92c0;
+  color: ${colors.craftPurple};
   font-sizr: 15px;
 `;
 
