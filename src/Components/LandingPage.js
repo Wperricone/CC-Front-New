@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 import Carousel from "./Carousel";
+import CraftCategories from "./CraftCategories";
 
 const LandingPage = ({ itemData }) => {
   return (
     <LandingPageSection className="landing-page">
       <Carousel />
+      <CraftCategories />
       <ItemContainer itemData={itemData} />
     </LandingPageSection>
   );
