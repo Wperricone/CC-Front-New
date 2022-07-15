@@ -22,7 +22,11 @@ const GET_ITEMS = gql`
     status
     available
     amount
-    userId
+    user {
+      id
+      name
+      email
+    }
    }
   }
 `;
