@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import Button from "./Button";
 import colors from "../constants/colors";
 
-const ItemExpanded = ({ findItem }) => {
 
+const ItemExpanded = ({ findItem }) => {
     const { craftId } = useParams()
 
     const [item, setItem] = useState({})
@@ -26,8 +26,9 @@ const ItemExpanded = ({ findItem }) => {
                         <H2>{item.name}</H2>
                         <AmountP>Amount: {item.amount}</AmountP>
                     </TitleAmountDiv>
+                    <AmountP>{item.user.name}</AmountP>
                     <DescP>{item.description}</DescP>
-                    <Button name="Contact Crafter" link="" action={(e) => {window.location.href = 'mailto:crafter@gmail.com';
+                    <Button name="Contact Crafter" link="" action={(e) => {window.location.href = `mailto:${item.user.email}`;
                                                                     e.preventDefault()}}/>
                 </ItemExpandedDiv>
             </>
