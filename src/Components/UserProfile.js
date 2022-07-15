@@ -1,28 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import colors from "../constants/colors";
 import Button from "./Button";
+
+import users from "../data/users.json";
 
 const UserProfile = () => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentColor, setCurrentColor] = useState("colors.craftBlue");
 
-  // if (!currentUser) {
-  //   return (
-  //     <UserProfileSection className="user-profile">
-  //       <SectionHeader>
-  //         You're not signed in! Click the button below to sign in or create an
-  //         account.
-  //       </SectionHeader>
-  //       <Button name={"Login"} link={"/login"} />
-  //     </UserProfileSection>
-  //   );
-  // }
+  useEffect(() => {
+    setCurrentUser(users.data.getUsers[0]);
+  }, []);
+
+  if (!currentUser) {
+    return (
+      <UserProfileSection className="user-profile">
+        <SectionHeader>
+          You're not signed in! Click the button below to sign in or create an
+          account.
+        </SectionHeader>
+        <Button name={"Login"} link={"/login"} />
+      </UserProfileSection>
+    );
+  }
 
   return (
     <UserProfileSection className="user-profile">
-      <BannerImg></BannerImg>
-      <ProfilePicture></ProfilePicture>
-      <ProfileName></ProfileName>
-      <ProfileEmail></ProfileEmail>
+      <BannerImg />
+      <ProfilePicture />
+      <ProfileName>{`${currentUser.name}`}</ProfileName>
+      <ProfileEmail>{`${currentUser.email}`}</ProfileEmail>
       <CraftDisplaySection>
         <SectionHeader>Crafts I'm Offering</SectionHeader>
         <Button name={"Add Craft"} link={"/contribution"} />
