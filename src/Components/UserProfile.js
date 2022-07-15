@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
 const UserProfile = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  // if (!currentUser) {
+  //   return (
+  //     <UserProfileSection className="user-profile">
+  //       <SectionHeader>
+  //         You're not signed in! Click the button below to sign in or create an
+  //         account.
+  //       </SectionHeader>
+  //       <Button name={"Login"} link={"/login"} />
+  //     </UserProfileSection>
+  //   );
+  // }
+
   return (
     <UserProfileSection className="user-profile">
       <BannerImg></BannerImg>
@@ -37,4 +51,4 @@ const ProfileEmail = styled.h2``;
 
 const CraftDisplaySection = styled.section``;
 
-const SectionHeader = styled.section``;
+const SectionHeader = styled.h1``;
