@@ -27,8 +27,8 @@ const ItemExpanded = ({ findItem }) => {
                         <AmountP>Amount: {item.amount}</AmountP>
                     </TitleAmountDiv>
                     <DescP>{item.description}</DescP>
-                    {/* <button className="contact-button"><a href="mailto:someone@example.com">Contact Crafter</a></button> */}
-                    <Button name="Contact Crafter" link="" />
+                    <Button name="Contact Crafter" link="" action={(e) => {window.location.href = 'mailto:crafter@gmail.com';
+                                                                    e.preventDefault()}}/>
                 </ItemExpandedDiv>
             </>
             : <h1>Loading...</h1>}
@@ -100,3 +100,4 @@ const ItemImgDiv = styled.div`
     align-items: center;
     flex-direction: column;
 `;
+
