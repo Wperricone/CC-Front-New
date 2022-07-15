@@ -3,12 +3,15 @@ import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 import Carousel from "./Carousel";
 import CraftCategories from "./CraftCategories";
+import Search from "./Search";
 
 const LandingPage = ({ itemData }) => {
+
   return (
     <LandingPageSection className="landing-page">
       <Carousel />
       <CraftCategories />
+      <Search />
       <ItemContainer itemData={itemData} />
     </LandingPageSection>
   );
@@ -21,5 +24,3 @@ const LandingPageSection = styled.section`
   flex-direction: column;
   align-items: center;
 `;
-
-// I noticed the search bar has moved locations in the wireframe. Will add styling once it's location has been confirmed.
