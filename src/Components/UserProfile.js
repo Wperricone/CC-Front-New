@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import Button from "./Button";
+import ColorChanger from "./ColorChanger";
 
 import users from "../data/users.json";
 
@@ -43,21 +44,22 @@ const UserProfile = () => {
         alt="your profile picture"
         style={{ boxShadow: `-12px -12px 0px ${colors[currentColor]}` }}
       />
-      <ProfileName style={{ color: `${colors[currentColor]}` }}>
+      <ProfileName style={{ color: colors[currentColor] }}>
         {currentUser.name}
       </ProfileName>
-      <ProfileEmail style={{ color: `${colors[currentColor]}` }}>
+      <ProfileEmail style={{ color: colors[currentColor] }}>
         {currentUser.email}
       </ProfileEmail>
-      <SectionHeader style={{ color: `${colors[currentColor]}` }}>
+      <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
       <CraftDisplaySection></CraftDisplaySection>
       <Button name={"Add Craft"} link={"/contribution"} />
-      <SectionHeader style={{ color: `${colors[currentColor]}` }}>
+      <SectionHeader style={{ color: colors[currentColor] }}>
         Borrowed Supplies
       </SectionHeader>
       <CraftDisplaySection></CraftDisplaySection>
+      <ColorChanger color={currentColor} updateColor={setCurrentColor} />
       <Button name={"Log Out"} link={"/login"} />
     </UserProfileSection>
   );
