@@ -1,21 +1,16 @@
 import styled from "styled-components";
 import React from "react";
-import ItemCard from "./ItemCard";
-import colors from "../constants/colors";
+import InventoryCard from "./InventoryCard";
 
-const InventoryContainer = ({ data }) => {
-  const randomizeColor = () => {
-    return Object.keys(colors)[Math.floor(Math.random() * 5)];
-  };
-
+const InventoryContainer = ({ data, color }) => {
   const items = data.map((item) => {
     return (
-      <ItemCard
+      <InventoryCard
         key={item.id}
         id={item.id}
         name={item.name}
         amount={item.amount}
-        color={randomizeColor()}
+        color={color}
       />
     );
   });

@@ -54,12 +54,18 @@ const UserProfile = () => {
       <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
-      <InventoryContainer data={userProfile.data.getUserItems} />
+      <InventoryContainer
+        color={currentColor}
+        data={userProfile.data.getUserItems}
+      />
       <Button name={"Add Craft"} link={"/contribution"} />
-      <SectionHeader style={{ color: colors[currentColor] }}>
+      {/* <SectionHeader style={{ color: colors[currentColor] }}>
         Borrowed Supplies
       </SectionHeader>
-      <InventoryContainer data={userProfile.data.getUserItems} />
+      <InventoryContainer
+        color={currentColor}
+        data={userProfile.data.getUserItems}
+      /> */}
       <ColorChanger color={currentColor} updateColor={setCurrentColor} />
       <Button name={"Log Out"} link={"/login"} />
     </UserProfileSection>

@@ -41,6 +41,7 @@ export default ColorChanger;
 const ColorChangerSection = styled.section`
   width: 85vw;
   display: flex;
+  margin-top: 5%;
   flex-direction: column;
   justify-content: center;
 `;
