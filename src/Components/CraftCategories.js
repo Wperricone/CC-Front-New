@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
 
-const CraftCategories = ({ changeCategory }) => {
+const CraftCategories = ({ category, changeCategory }) => {
   return (
     <>
       <SectionTitle>Categories:</SectionTitle>
       <CategorySection>
         <CategoryBox
+          className={category === "Sewing/Knitting" ? "selected" : ""}
           style={{ background: colors.craftOrange }}
           onClick={() => changeCategory("Sewing/Knitting")}
         >
@@ -18,6 +19,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>sewing/knitting</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Paper" ? "selected" : ""}
           style={{ background: colors.craftPurple }}
           onClick={() => changeCategory("Paper")}
         >
@@ -28,6 +30,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>paper</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Baking" ? "selected" : ""}
           style={{ background: colors.craftBlue }}
           onClick={() => changeCategory("Baking")}
         >
@@ -38,6 +41,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>baking</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Jewelry" ? "selected" : ""}
           style={{ background: colors.craftGreen }}
           onClick={() => changeCategory("Jewelry")}
         >
@@ -48,6 +52,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>jewelry</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Scrapbook/Floral" ? "selected" : ""}
           style={{ background: colors.craftPink }}
           onClick={() => changeCategory("Scrapbook/Floral")}
         >
@@ -58,6 +63,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>scrapbook/floral</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Painting" ? "selected" : ""}
           style={{ background: colors.craftGreen }}
           onClick={() => changeCategory("Painting")}
         >
@@ -68,6 +74,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>painting</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Drawing" ? "selected" : ""}
           style={{ background: colors.craftBlue }}
           onClick={() => changeCategory("Drawing")}
         >
@@ -78,6 +85,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>drawing</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Wood Working" ? "selected" : ""}
           style={{ background: colors.craftPink }}
           onClick={() => changeCategory("Wood Working")}
         >
@@ -88,6 +96,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>wood working</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Pottery" ? "selected" : ""}
           style={{ background: colors.craftOrange }}
           onClick={() => changeCategory("Pottery")}
         >
@@ -98,6 +107,7 @@ const CraftCategories = ({ changeCategory }) => {
           <CategoryName>pottery</CategoryName>
         </CategoryBox>
         <CategoryBox
+          className={category === "Other" ? "selected" : ""}
           style={{ background: colors.craftPurple }}
           onClick={() => changeCategory("Other")}
         >
@@ -149,6 +159,18 @@ const CategoryBox = styled.div`
     margin-top: 0;
     margin-left: 0;
     box-shadow: 12px 12px 0px ${colors.craftGrey};
+  }
+  &.selected {
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-top: 0;
+    margin-left: 0;
+    box-shadow: 12px 12px 0px ${colors.craftBlack};
+  }
+  &:active {
+    margin: 5%; 
+    box-shadow: none;
+  }
 `;
 
 const CategoryIcon = styled.img`
@@ -160,4 +182,7 @@ const CategoryName = styled.p`
   font-weight: 700;
   color: ${colors.craftWhite};
   margin: 0;
+  .selected & {
+    color: ${colors.craftBlack};
+  }
 `;

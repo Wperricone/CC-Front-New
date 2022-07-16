@@ -34,8 +34,7 @@ const LandingPage = ({ itemData }) => {
   return (
     <LandingPageSection className="landing-page">
       <Carousel />
-      <CraftCategories changeCategory={changeCategory} />
-      <p>{category}</p>
+      <CraftCategories category={category} changeCategory={changeCategory} />
       <Search search={search} />
       <ItemContainer itemData={filteredItems} />
     </LandingPageSection>
