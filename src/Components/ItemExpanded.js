@@ -28,7 +28,7 @@ const ItemExpanded = ({ findItem }) => {
                         <H2 className="craft-name">{item.name}</H2>
                         <AmountP className="amount">Amount: {item.amount}</AmountP>
                     </TitleAmountDiv>
-                   {item.user && <p>{item.user.name}</p>}
+                   {item.user && <AmountP className="crafter-name">{item.user.name}</AmountP>}
                     <DescP className="description">{item.description}</DescP>
                     <Button name="Contact Crafter" link="" action={(e) => {window.location.href = `mailto:${item.user.email}`;
                                                                     e.preventDefault()}}/>

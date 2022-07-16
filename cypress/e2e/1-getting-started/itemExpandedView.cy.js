@@ -10,16 +10,19 @@ describe('Craft Circle landing page view', () => {
     cy.get('button').contains('Contact Crafter')
   });
 
-  it('should include four pieces of information: category, name, amount and description', () => {
+  it('should include five pieces of information: category, name, amount, crafter name and description', () => {
     cy.get(".category").contains("Drawing")
     cy.get('.craft-name').contains("Dixon Ticonderoga")
     cy.get('.amount').contains("Amount: 1")
+    cy.get(".crafter-name").contains("Phillip")
     cy.get('.description').contains("The best pencil known to humankind")
   })
 
-  it.skip('should allow the user to email a crafter using the contact crafter button', () => {
+  // it('should allow the user to email a crafter using the contact crafter button', () => {
+  //   cy.get('button').contains('Contact Crafter').click()
+  //   cy.window()
+  // })
 
-  })
-
+  // not sure if it is possible to test a popup window for mail on macos. 
 }
 )
