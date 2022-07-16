@@ -3,15 +3,16 @@ import styled from "styled-components";
 import colors from "../constants/colors";
 import Button from "./Button";
 import ColorChanger from "./ColorChanger";
+import InventoryContainer from "./InventoryContainer";
 
-import users from "../data/users.json";
+import userProfile from "../data/userProfile.json";
 
 const UserProfile = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentColor, setCurrentColor] = useState("craftBlue");
 
   useEffect(() => {
-    setCurrentUser(users.data.getUsers[0]);
+    setCurrentUser(userProfile.data.getAUser);
   }, []);
 
   if (!currentUser) {
@@ -53,12 +54,12 @@ const UserProfile = () => {
       <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
-      <CraftDisplaySection></CraftDisplaySection>
+      <InventoryContainer data={userProfile.data.getUserItems} />
       <Button name={"Add Craft"} link={"/contribution"} />
       <SectionHeader style={{ color: colors[currentColor] }}>
         Borrowed Supplies
       </SectionHeader>
-      <CraftDisplaySection></CraftDisplaySection>
+      <InventoryContainer data={userProfile.data.getUserItems} />
       <ColorChanger color={currentColor} updateColor={setCurrentColor} />
       <Button name={"Log Out"} link={"/login"} />
     </UserProfileSection>
@@ -99,17 +100,6 @@ const ProfileName = styled.h1`
 const ProfileEmail = styled.h2`
   font-size: 25px;
   font-weight: 900;
-`;
-
-const CraftDisplaySection = styled.section`
-  width: 90vw;
-  padding: 5vw;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
-  justify-items: center;
-  align-items: center;
-  margin-bottom: 5vh;
 `;
 
 const SectionHeader = styled.h1`
