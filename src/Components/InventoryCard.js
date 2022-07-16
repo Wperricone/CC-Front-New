@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
+import Popup from "reactjs-popup";
 import ToggleSwitch from "./ToggleSwitch";
+import PopupModal from "./PopupModal";
 
 const InventoryCard = ({ name, amount, color }) => {
   const [currentlyActive, setActiveStatus] = useState("list");
@@ -23,6 +25,18 @@ const InventoryCard = ({ name, amount, color }) => {
           action={setActiveStatus}
           currentlyActive={currentlyActive}
         />
+        <StyledPopup
+          trigger={
+            <DeleteButton style={{ background: colors[color] }}>
+              delete
+            </DeleteButton>
+          }
+          modal
+          nested
+          closeOnDocumentClick
+        >
+          {(close) => <PopupModal close={close} />}
+        </StyledPopup>
       </ItemBoxDiv>
     </ItemCardSection>
   );
@@ -88,3 +102,21 @@ const ItemCardSection = styled.section`
     box-shadow: 20px 20px 0px ${colors.craftGrey};
   }
 `;
+
+const DeleteButton = styled.button`
+  color: ${colors.craftWhite};
+  border-radius: 10px;
+  border: 0;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 25px;
+  &: hover {
+    cursor: pointer;
+    color: ${colors.craftBlack};
+  }
+`;
+
+const StyledPopup = styled(Popup)``;

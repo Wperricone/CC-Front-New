@@ -61,6 +61,7 @@ const ToggleBackground = styled.div`
   border-radius: 10px;
   display: flex;
   background: ${colors.craftWhite};
+  margin-bottom: 15px;
 `;
 
 const Option = styled.div`
