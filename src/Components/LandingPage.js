@@ -48,4 +48,5 @@ const LandingPageSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40vh;
 `;
