@@ -8,10 +8,10 @@ const AboutPage = () => {
     <Contents className="about-container">
       <BackgroundImgContainer>
         <About>
-          <AboutH2>
+          <AboutH2 className="about-heading">
             we are <H2Highlight>Crafters</H2Highlight>
           </AboutH2>
-          <AboutP>
+          <AboutP className="about-paragraph">
             Craft Circle is an online community where crafters can borrow and
             donate supplies in an effort to make creative outlets more
             accessible. Currently, this platform is meant for community members
@@ -19,32 +19,35 @@ const AboutPage = () => {
           </AboutP>
         </About>
         <Gap></Gap>
-        <JoinCTAContainer>
+        <JoinCTAContainer className="join-cta-container">
           <CtaImage
+            className="cta-image"
             src={require("../assets/bannerImages/ctaImage1.png")}
             alt="brightly-colored woven rounds"
           />
           <CtaContainer>
-            <CtaP>
+            <CtaP className="cta-paragraph">
               Whether you're looking to share supplies or need to source
-              something for your next creative projecct, Craft Cirle is the
+              something for your next creative project, Craft Cirle is the
               virtal marketplace for you. Click below to join our community of
               Crafters today and get crafting!
             </CtaP>
-            <Button name="Get started" link="/profile" />
+            <Button name="Get Started" link="/profile" />
           </CtaContainer>
         </JoinCTAContainer>
       </BackgroundImgContainer>
-      <Footer>
+      <Footer className="footer">
         <FooterImg
+          className="footer-image"
           src={require("../assets/bannerImages/bannerImage4.png")}
           alt="water color palette"
         />
         <FooterLogo
+          className="footer-logo"
           src={require("../assets/CraftCircleLogo-06.png")}
           alt="craft circle logo"
         />
-        <FooterH3>crafting community one stitch at a time</FooterH3>
+        <FooterH3 className="footer-tagline">crafting community one stitch at a time</FooterH3>
       </Footer>
     </Contents>
   );
