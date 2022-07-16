@@ -3,9 +3,11 @@ import { useParams } from "react-router-dom";
 import styled from 'styled-components';
 import Button from "./Button";
 import colors from "../constants/colors";
+import AboutPage from "./AboutPage";
+
 
 const ItemExpanded = ({ findItem }) => {
-
+     
     const { craftId } = useParams()
 
     const [item, setItem] = useState({})
@@ -21,14 +23,15 @@ const ItemExpanded = ({ findItem }) => {
                     <ItemExpandedImg className="item-image-large" src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")} alt=""/>
                 </ItemImgDiv>
                 <ItemExpandedDiv>
-                    <CategoryP>{item.category}</CategoryP>
+                    <CategoryP className="category">{item.category}</CategoryP>
                     <TitleAmountDiv>
-                        <H2>{item.name}</H2>
-                        <AmountP>Amount: {item.amount}</AmountP>
+                        <H2 className="craft-name">{item.name}</H2>
+                        <AmountP className="amount">Amount: {item.amount}</AmountP>
                     </TitleAmountDiv>
-                    <DescP>{item.description}</DescP>
-                    {/* <button className="contact-button"><a href="mailto:someone@example.com">Contact Crafter</a></button> */}
-                    <Button name="Contact Crafter" link="" />
+                   {item.user && <AmountP className="crafter-name">{item.user.name}</AmountP>}
+                    <DescP className="description">{item.description}</DescP>
+                    <Button name="Contact Crafter" link="" action={(e) => {window.location.href = `mailto:${item.user.email}`;
+                                                                    e.preventDefault()}}/>
                 </ItemExpandedDiv>
             </>
             : <h1>Loading...</h1>}
@@ -100,3 +103,4 @@ const ItemImgDiv = styled.div`
     align-items: center;
     flex-direction: column;
 `;
+
