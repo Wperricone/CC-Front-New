@@ -7,22 +7,20 @@ import Search from "./Search";
 
 const LandingPage = ({ itemData }) => {
 
-  const [category, setCategory] = useState("")
-  const [filteredItems, setFilteredItems] = useState([])
+  const [category, setCategory] = useState("");
+  const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
-    setFilteredItems(itemData)
-  },[])
-
-  const changeCategory = (newCategory) => {
-    newCategory === category ? setCategory("") : setCategory(newCategory)
-  }
+    setFilteredItems(itemData);
+  },[]);
 
   useEffect(() => {
-    console.log(itemData);
-    category ? setFilteredItems(itemData.filter(item => item.category === category)) : setFilteredItems(itemData)
-  },[category])
+    category ? setFilteredItems(itemData.filter(item => item.category === category)) : setFilteredItems(itemData);
+  },[category]);
   
+  const changeCategory = (newCategory) => {
+    newCategory === category ? setCategory("") : setCategory(newCategory);
+  };
 
   return (
     <LandingPageSection className="landing-page">
