@@ -1,10 +1,9 @@
-import { isNonEmptyArray } from "@apollo/client/utilities";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../constants/colors";
 
-const ItemCard = ({ name, amount, id, color, category }) => {
+const ItemCard = ({ name, amount, id, category }) => {
   return (
     <Link style={{ textDecoration: "none" }} to={`/craft/${id}`}>
       <ItemCardSection className={`${category.replace("/", "-")} item-card`}>
