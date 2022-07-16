@@ -17,9 +17,14 @@ const ItemContainer = ({ itemData }) => {
   });
 
   return (
-      <ItemContainerSection className="item-container">
-        {items}
-      </ItemContainerSection>
+      <>
+      {items.length ? 
+         <ItemContainerSection className="item-container">
+            {items}
+         </ItemContainerSection>
+         : <h2>Nothing Found!</h2>
+      }
+      </>
   );
 };
 
