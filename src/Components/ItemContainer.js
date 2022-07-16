@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import React from "react";
 import ItemCard from "./ItemCard";
-import colors from "../constants/colors";
 
 const ItemContainer = ({ itemData }) => {
-   
-   const randomizeColor = () => {
-      return Object.keys(colors)[Math.floor(Math.random() * 5)];
-   };
 
   const items = itemData.map((item) => {
     return (
@@ -16,7 +11,7 @@ const ItemContainer = ({ itemData }) => {
         id={item.id}
         name={item.name}
         amount={item.amount}
-        color={randomizeColor()}
+        category={item.category}
       />
     );
   });
