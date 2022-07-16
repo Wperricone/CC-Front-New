@@ -5,7 +5,7 @@ import Button from "./Button";
 
 const AboutPage = () => {
   return (
-    <Contents className="search-and-about-container">
+    <Contents className="about-container">
       <BackgroundImgContainer>
       <About>
         <AboutH2>we are <H2Highlight>Crafters</H2Highlight></AboutH2>

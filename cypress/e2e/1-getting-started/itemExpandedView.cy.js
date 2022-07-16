@@ -24,5 +24,22 @@ describe('Craft Circle landing page view', () => {
   // })
 
   // not sure if it is possible to test a popup window for mail on macos. 
+
+  it('should allow the user to visit the about page', () => {
+    cy.get("button").contains("About").click()
+    cy.get(".about-container").contains("we are Crafters")
+  })
+
+  it('should allow the user to return to the homepage', () => {
+    cy.get("button").contains("All Crafts").click()
+    cy.get(".landing-page-img").should("have.attr", "alt").should("include", "crafts-in-action")
+  })
+  
+  it.skip("should allow the user to view their profile", () => {
+    cy.get("button").contains("Profile").click()
+    cy.get(".about-container").contains("we are Crafters")
+  })
+
+  //will add testing for profile page once build is complete.
 }
 )
