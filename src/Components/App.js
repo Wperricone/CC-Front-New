@@ -31,22 +31,55 @@ const GET_ITEMS = gql`
   }
 `;
 
-function App() {
-  const { loading, error, data } = useQuery(GET_ITEMS);
+const GET_USER = gql`
+  query getAUser {
+    details: getAUser(email: "phillip@email.com") {
+      id
+      email
+      name
+    }
+    inventory: getUserItems(id: 1) {
+      name
+      description
+      category
+      status
+      available
+      amount
+    }
+  }
+`
 
+
+function App() {  
+  // const { loading, error, data } = useQuery(GET_ITEMS);
   const findItem = (id) => {
-    if (data && data.items) {
+    if (allCraftItems.data && allCraftItems.data.items) {
       return allItems.find((item) => item.id === id);
     }
   };
 
+  const allCraftItems = useQuery(GET_ITEMS)
+  const currentUser = useQuery(GET_USER)
+
+  const loading = allCraftItems.loading || currentUser.loading
+  const error = allCraftItems.error || currentUser.error
+
   const [allItems, setAllItems] = useState([]);
+  const [user, setUser] = useState({})
+
+  // useEffect(() => {
+  //   if (data && data.items) {
+  //     setAllItems(data.items);
+  //   }
+  // }, [data]);
 
   useEffect(() => {
-    if (data && data.items) {
-      setAllItems(data.items);
+    if (allCraftItems.data && allCraftItems.data.items) {
+      console.log(currentUser.data)
+      setUser(currentUser.data)
+      setAllItems(allCraftItems.data.items);
     }
-  }, [data]);
+  }, [allCraftItems.data]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
@@ -56,7 +89,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<LandingPage itemData={allItems} />} />
         <Route exact path="about" element={<AboutPage />} />
-        <Route exact path="profile" element={<UserProfile />} />
+        <Route exact path="profile" element={<UserProfile user={user} />} />
         <Route exact path="contribution" element={<Form />} />
         <Route
           exact
