@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
 
-const CraftCategories = () => {
+const CraftCategories = ({ changeCategory }) => {
   return (
     <>
       <SectionTitle>Categories:</SectionTitle>
       <CategorySection>
         <CategoryBox
           style={{ background: colors.craftOrange }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("sewing/knitting")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-08.png`)}
@@ -19,7 +19,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftPurple }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("paper")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-09.png`)}
@@ -29,7 +29,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftBlue }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("baking")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-10.png`)}
@@ -39,7 +39,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftGreen }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("jewelry")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-11.png`)}
@@ -49,7 +49,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftPink }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("scrapbook/floral")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-12.png`)}
@@ -59,7 +59,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftGreen }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("painting")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-13.png`)}
@@ -69,7 +69,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftBlue }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("drawing")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-14.png`)}
@@ -79,7 +79,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftPink }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("wood working")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-15.png`)}
@@ -89,7 +89,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftOrange }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("pottery")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-16.png`)}
@@ -99,7 +99,7 @@ const CraftCategories = () => {
         </CategoryBox>
         <CategoryBox
           style={{ background: colors.craftPurple }}
-          onClick={() => console.log("yeehaw")}
+          onClick={() => changeCategory("other")}
         >
           <CategoryIcon
             src={require(`../assets/categoryIcons/CraftCircleIcon-17.png`)}
