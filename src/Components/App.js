@@ -14,51 +14,55 @@ import NoMatch from "./NoMatch";
 
 const GET_ITEMS = gql`
   query getItems {
-   items: getItems {
-    id
-    name
-    description
-    category
-    status
-    available
-    amount
-    user {
+    items: getItems {
       id
       name
-      email
+      description
+      category
+      status
+      available
+      amount
+      user {
+        id
+        name
+        email
+      }
     }
-   }
   }
 `;
 
 function App() {
-  const { loading, error, data } = useQuery(GET_ITEMS); 
+  const { loading, error, data } = useQuery(GET_ITEMS);
 
-  const findItem = (id) => {  
+  const findItem = (id) => {
     if (data && data.items) {
-      return allItems.find(item => item.id === id)
+      return allItems.find((item) => item.id === id);
     }
-  }
+  };
 
-  const [allItems, setAllItems] = useState([])
+  const [allItems, setAllItems] = useState([]);
 
   useEffect(() => {
     if (data && data.items) {
-      setAllItems(data.items)
+      setAllItems(data.items);
     }
-  },[data])
-  
+  }, [data]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
   return (
-    <main> 
+    <main>
       <NavBar />
       <Routes>
         <Route exact path="/" element={<LandingPage itemData={allItems} />} />
         <Route exact path="about" element={<AboutPage />} />
         <Route exact path="profile" element={<UserProfile />} />
         <Route exact path="contribution" element={<Form />} />
-        <Route exact path="craft/:craftId" element={<ItemExpanded findItem={findItem} />} />
+        <Route
+          exact
+          path="craft/:craftId"
+          element={<ItemExpanded findItem={findItem} />}
+        />
         {/* <Route exact path="confirmation" element={} /> */}
         <Route exact path="login" element={<Login />} />
         <Route path="*" element={<NoMatch />} />
