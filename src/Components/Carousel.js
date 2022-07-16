@@ -6,7 +6,7 @@ const Carousel = () => {
   const [currentImage, setImage] = useState("bannerImage1.png");
 
   return (
-    <div>
+    <div className="carousel">
       <LandingImage
         className="landing-page-img"
         src={require(`../assets/bannerImages/${currentImage}`)}
