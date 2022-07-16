@@ -4,7 +4,7 @@ const colors = {
   craftBlue: "#B7C1DC",
   craftGreen: "#A7C891",
   craftPink: "#EFCBC7",
-  craftBlack: "#221F20",
+  craftBlack: "#656565",
   craftGrey: "#A18E96",
   craftWhite: "#F4ECDD"
 }
