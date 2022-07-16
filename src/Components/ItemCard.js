@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../constants/colors";
 
-const ItemCard = ({ name, amount, id, category }) => {
+const ItemCard = ({ name, amount, id, category, user }) => {
   return (
     <Link style={{ textDecoration: "none" }} to={`/craft/${id}`}>
       <ItemCardSection className={`${category.replace("/", "-")} item-card`}>
@@ -15,7 +15,7 @@ const ItemCard = ({ name, amount, id, category }) => {
         <ItemBoxDiv>
           <ItemH4>{name}</ItemH4>
           <ItemP>Amount: {amount}</ItemP>
-          <ItemP>Crafty Joe</ItemP>
+          <ItemP>{user}</ItemP>
         </ItemBoxDiv>
       </ItemCardSection>
     </Link>

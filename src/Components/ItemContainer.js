@@ -12,6 +12,7 @@ const ItemContainer = ({ itemData }) => {
         name={item.name}
         amount={item.amount}
         category={item.category}
+        user={item.user.name}
       />
     );
   });
