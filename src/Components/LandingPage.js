@@ -9,25 +9,34 @@ const LandingPage = ({ itemData }) => {
 
   const [category, setCategory] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
+  const [searchFilter, setSearchFilter] = useState("");
 
   useEffect(() => {
     setFilteredItems(itemData);
   },[]);
 
   useEffect(() => {
-    category ? setFilteredItems(itemData.filter(item => item.category === category)) : setFilteredItems(itemData);
-  },[category]);
+    category ? setFilteredItems(itemData.filter(item => item.category === category && compareName(item))) : setFilteredItems(itemData.filter(item => compareName(item)));
+  },[category, searchFilter]);
   
+  const compareName = (item) => {
+    return item.name.toUpperCase().includes(searchFilter.toUpperCase());
+  }
+
   const changeCategory = (newCategory) => {
     newCategory === category ? setCategory("") : setCategory(newCategory);
-  };
+  }
+
+  const search = (input) => {
+    setSearchFilter(input);
+  }
 
   return (
     <LandingPageSection className="landing-page">
       <Carousel />
       <CraftCategories changeCategory={changeCategory} />
       <p>{category}</p>
-      <Search />
+      <Search search={search} />
       <ItemContainer itemData={filteredItems} />
     </LandingPageSection>
   );

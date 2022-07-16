@@ -2,16 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
 
-const Search = () => {
+const Search = ({ search }) => {
 
-  const [searchInput, setSearchInput] = useState("")
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+    search(e.target.value);
+  }
 
   return (
     <SectionInfo>
       <SectionTitle>Crafts:</SectionTitle>
       <SearchDiv>
         <SectionTitle>Search:</SectionTitle>
-        <SearchInput type="text" value={searchInput} onChange={e => setSearchInput(e.target.value)} />
+        <SearchInput type="text" value={searchInput} onChange={e => handleChange(e)} />
       </SearchDiv>
     </SectionInfo>
   )
