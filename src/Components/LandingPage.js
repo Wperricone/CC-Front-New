@@ -10,7 +10,7 @@ const LandingPage = ({ itemData }) => {
   const [category, setCategory] = useState("")
 
   const changeCategory = (newCategory) => {
-    setCategory(newCategory)
+    newCategory === category ? setCategory("") : setCategory(newCategory)
   }
 
   return (
