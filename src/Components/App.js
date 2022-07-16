@@ -54,7 +54,7 @@ function App() {
     <main>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<LandingPage itemData={allItems} />} />
+        <Route exact path="/" element={<LandingPage itemData={data.items} />} />
         <Route exact path="about" element={<AboutPage />} />
         <Route exact path="profile" element={<UserProfile />} />
         <Route exact path="contribution" element={<Form />} />
