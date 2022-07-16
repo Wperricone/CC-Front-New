@@ -6,7 +6,7 @@ const CraftCategories = ({ category, changeCategory }) => {
   return (
     <>
       <SectionTitle>Categories:</SectionTitle>
-      <CategorySection>
+      <CategorySection className="category-section">
         <CategoryBox
           className={category === "Sewing/Knitting" ? "selected" : ""}
           style={{ background: colors.craftOrange }}
