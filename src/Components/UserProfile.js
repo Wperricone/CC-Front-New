@@ -18,10 +18,10 @@ const UserProfile = ({ user }) => {
       <UserProfileSection className="user-profile">
         <SignInImage
           className="not-signed-in-img"
-          // src={require(`../assets/`)}
+          src={require(`../assets/userProfileImgs/CCpaintbrushbro-01.png`)}
           alt="not signed in image"
         />
-        <SectionHeader>
+        <SectionHeader style={{ color: colors.craftGreen }}>
           You're not signed in! Click the button below to sign in or create an
           account.
         </SectionHeader>
@@ -110,8 +110,12 @@ const ProfileEmail = styled.h2`
 `;
 
 const SectionHeader = styled.h1`
+  text-align: center;
   font-size: 30px;
   font-weight: 900;
 `;
 
-const SignInImage = styled.img``;
+const SignInImage = styled.img`
+  width: 230px;
+  height: 230px;
+`;

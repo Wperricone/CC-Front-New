@@ -75,5 +75,5 @@ cursor: pointer;
   margin-bottom: 15px;
   margin-left: 5px;
   margin-top: 5px;
-  box-shadow: 5px 5px 0px ${colors.craftGrey};
+  box-shadow: 5px 5px 0px ${colors.craftBlack};
 `;
