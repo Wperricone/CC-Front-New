@@ -59,4 +59,53 @@ describe("Craft Circle landing page view", () => {
     cy.get(".item-card").eq(0).should("contain", "Phillip");
   });
 
+  it("Should be able to sort by category", () => {
+    cy.get(".category-section").children().eq(1).click();
+    cy.get(".item-card").should("have.length", 1);
+    cy.get(".item-card").eq(0).should("contain", "Multicolored Construction Paper");
+
+    cy.get(".category-section").children().eq(0).click();
+    cy.get(".item-card").should("have.length", 1);
+    cy.get(".item-card").eq(0).should("contain", "Purple Yarn");
+
+    cy.get(".category-section").children().eq(0).click();
+    cy.get(".item-card").should("have.length", 6);
+  });
+
+  it("Should be able to search by craft name", () => {
+    cy.get("input").type("multi");
+    cy.get(".item-card").should("have.length", 1);
+    cy.get(".item-card").eq(0).should("contain", "Multicolored Construction Paper");
+
+    cy.get("input").type("example");
+    cy.get(".item-card").should("have.length", 0);
+    cy.get("h2").should("contain", "Nothing Found!");
+  });
+
+  it("Should be able to search by name and category", () => {
+    cy.get("input").type("ti");
+    cy.get(".item-card").should("have.length", 2);
+    cy.get(".item-card").eq(0).should("contain", "Dixon Ticonderoga");
+    cy.get(".category-section").children().eq(1).click();
+    cy.get(".item-card").should("have.length", 1);
+    cy.get(".item-card").eq(0).should("contain", "Multicolored Construction Paper");
+  });
+
+  it("Should be able to click on an item card and go to a details page for that item", () => {
+    cy.get(".item-card").eq(0).click();
+    cy.url().should("contain", "http://localhost:3000/craft/1");
+  });
+
+  it("Should be ble to navigate through the Nav Bar buttons", () => {
+    cy.get(".nav-button").eq(1).click();
+    cy.url().should("contain", "http://localhost:3000/about");
+
+    cy.get(".nav-button").eq(0).click();
+    cy.url().should("contain", "http://localhost:3000");
+
+    cy.get(".nav-button").eq(2).click();
+    cy.url().should("contain", "http://localhost:3000/profile");
+
+  });
+
 });
