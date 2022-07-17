@@ -33,20 +33,26 @@ const UserProfile = ({ user }) => {
   return (
     <UserProfileSection className="user-profile">
       <BannerImg
-        className="not-signed-in-img"
+        className="user-banner-img"
         src={require(`../assets/userProfileImgs/userBannerImg.jpg`)}
         alt=""
       />
       <ProfilePicture
-        className="not-signed-in-img"
+        className="profile-picture"
         src={require(`../assets/userProfileImgs/CCProfilePic-01.png`)}
         alt="your profile picture"
         style={{ boxShadow: `-12px -12px 0px ${colors[currentColor]}` }}
       />
-      <ProfileName style={{ color: colors[currentColor] }}>
+      <ProfileName
+        className="profile-user-name"
+        style={{ color: colors[currentColor] }}
+      >
         {currentUser.name}
       </ProfileName>
-      <ProfileEmail style={{ color: colors[currentColor] }}>
+      <ProfileEmail
+        className="profile-user-email"
+        style={{ color: colors[currentColor] }}
+      >
         {currentUser.email}
       </ProfileEmail>
       <SectionHeader style={{ color: colors[currentColor] }}>

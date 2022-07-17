@@ -4,30 +4,36 @@ import colors from "../constants/colors";
 
 const ColorChanger = ({ color, updateColor }) => {
   return (
-    <ColorChangerSection>
+    <ColorChangerSection className="color-changer">
       <Header style={{ color: colors[color] }}>Pick Profile Color:</Header>
       <ColorBar>
         <ColorBox
+          className="color-box"
           onClick={() => updateColor("craftPurple")}
           style={{ background: colors.craftPurple }}
         ></ColorBox>
         <ColorBox
+          className="color-box"
           onClick={() => updateColor("craftPink")}
           style={{ background: colors.craftPink }}
         ></ColorBox>
         <ColorBox
+          className="color-box"
           onClick={() => updateColor("craftOrange")}
           style={{ background: colors.craftOrange }}
         ></ColorBox>
         <ColorBox
+          className="color-box"
           onClick={() => updateColor("craftGreen")}
           style={{ background: colors.craftGreen }}
         ></ColorBox>
         <ColorBox
+          className="color-box"
           onClick={() => updateColor("craftBlue")}
           style={{ background: colors.craftBlue }}
         ></ColorBox>
         <ColorBox
+          className="color-box"
           onClick={() => updateColor("craftGrey")}
           style={{ background: colors.craftGrey }}
         ></ColorBox>
