@@ -24,7 +24,7 @@ const AboutPage = () => {
         </About>
         <JoinCTAContainer className="join-cta-container">
         
-          <Lottie style={{height: "300px", margin: "40px"}} animationData={require("../assets/animations/clay-crafting.json")} loop={true}/>
+          <Lottie className="cta-animation" style={{height: "300px", margin: "40px"}} animationData={require("../assets/animations/clay-crafting.json")} loop={true}/>
           <CtaContainer>
             <CtaP className="cta-paragraph">
               Whether you're looking to share supplies or need to source
