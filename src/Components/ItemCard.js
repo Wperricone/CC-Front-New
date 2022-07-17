@@ -1,13 +1,12 @@
-import { isNonEmptyArray } from "@apollo/client/utilities";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../constants/colors";
 
-const ItemCard = ({ name, amount, id, color }) => {
+const ItemCard = ({ name, amount, id, category, user }) => {
   return (
     <Link style={{ textDecoration: "none" }} to={`/craft/${id}`}>
-      <ItemCardSection className={`${color} item-card`}>
+      <ItemCardSection className={`${category.replace("/", "-")} item-card`}>
         <ItemCardImg
           className="stock-img"
           src={require("../assets/myrlene-numa-SnITZTTeJVE-unsplash.jpg")}
@@ -16,7 +15,7 @@ const ItemCard = ({ name, amount, id, color }) => {
         <ItemBoxDiv>
           <ItemH4>{name}</ItemH4>
           <ItemP>Amount: {amount}</ItemP>
-          <ItemP>Crafty Joe</ItemP>
+          <ItemP>{user}</ItemP>
         </ItemBoxDiv>
       </ItemCardSection>
     </Link>
@@ -58,25 +57,45 @@ const ItemCardSection = styled.section`
   margin: 20px;
   background: white;
   padding: 30px;
-  &.craftGreen {
-    color: ${colors.craftGreen};
-    box-shadow: 20px 20px 0px ${colors.craftGreen};
+  &.Sewing-Knitting {
+    color: ${colors.craftOrange};
+    box-shadow: 20px 20px 0px ${colors.craftOrange};
   }
-  &.craftPink {
-    color: ${colors.craftPink};
-    box-shadow: 20px 20px 0px ${colors.craftPink};
-  }
-  &.craftBlue {
-    color: ${colors.craftBlue};
-    box-shadow: 20px 20px 0px ${colors.craftBlue};
-  }
-  &.craftPurple {
+  &.Paper {
     color: ${colors.craftPurple};
     box-shadow: 20px 20px 0px ${colors.craftPurple};
   }
-  &.craftOrange {
+  &.Baking {
+    color: ${colors.craftBlue};
+    box-shadow: 20px 20px 0px ${colors.craftBlue};
+  }
+  &.Jewelry {
+    color: ${colors.craftGreen};
+    box-shadow: 20px 20px 0px ${colors.craftGreen};
+  }
+  &.Scrapbook-Floral {
+    color: ${colors.craftPink};
+    box-shadow: 20px 20px 0px ${colors.craftPink};
+  }
+  &.Painting {
+    color: ${colors.craftGreen};
+    box-shadow: 20px 20px 0px ${colors.craftGreen};
+  }
+  &.Drawing {
+    color: ${colors.craftBlue};
+    box-shadow: 20px 20px 0px ${colors.craftBlue};
+  }
+  &.Wood {
+    color: ${colors.craftPink};
+    box-shadow: 20px 20px 0px ${colors.craftPink};
+  }
+  &.Pottery {
     color: ${colors.craftOrange};
     box-shadow: 20px 20px 0px ${colors.craftOrange};
+  }
+  &.Other {
+    color: ${colors.craftPurple};
+    box-shadow: 20px 20px 0px ${colors.craftPurple};
   }
   &:hover {
     cursor: pointer;
