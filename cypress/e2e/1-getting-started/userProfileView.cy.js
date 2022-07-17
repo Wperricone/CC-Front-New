@@ -1,7 +1,7 @@
 describe("User Profile Page spec", () => {
   beforeEach(() => {
     // cy.intercept("craft-circle-be.herokuapp.com/graphql", {fixture: "userProfile.json"})
-    cy.visit("http://localhost:3000");
+    cy.visit("http://localhost:3000").wait(2000);
     cy.get("button").contains("Profile").click();
   });
 
