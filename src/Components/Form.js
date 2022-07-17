@@ -43,7 +43,7 @@ const Form = () => {
 							<Label>Description</Label>
             	<InputDescription rows="5" cols="60" type="text" value={description} onChange={e => setItemDescription(e.target.value)}></InputDescription>
 						</FormInputContainer>
-						 <Button name={"Add Item"} link={""} />
+						 <Button name={"Add Item"} link={"/confirmation"} />
         </CraftForm>
 			</CraftFormSection>
     )
