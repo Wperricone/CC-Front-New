@@ -11,6 +11,7 @@ import Form from "./Form";
 import ItemExpanded from "./ItemExpanded";
 import Login from "./Login";
 import NoMatch from "./NoMatch";
+import LoadingPage from "./LoadingPage";
 
 const GET_ITEMS = gql`
   query getItems {
@@ -81,7 +82,7 @@ function App() {
     }
   }, [allCraftItems.data]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingPage/>;
   if (error) return <p>Error</p>;
   return (
     <main>
