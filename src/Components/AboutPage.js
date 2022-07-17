@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Lottie from "lottie-react";
 import colors from "../constants/colors";
 import Button from "./Button";
 
@@ -9,6 +10,7 @@ const AboutPage = () => {
       <AboutContainer>
         <ParallaxImage src={require("../assets/bannerImages/backgroundImage1.png")} alt="assortment of handmade pottery"/>
         <About>
+          <AboutContents>
           <AboutH2 className="about-heading">
             we are <H2Highlight>Crafters</H2Highlight>
           </AboutH2>
@@ -18,13 +20,11 @@ const AboutPage = () => {
             accessible. Currently, this platform is meant for community members
             who reside in the Denver Metro area.
           </AboutP>
+          </AboutContents>
         </About>
         <JoinCTAContainer className="join-cta-container">
-          <CtaImage
-            className="cta-image"
-            src={require("../assets/bannerImages/ctaImage1.png")}
-            alt="brightly-colored woven rounds"
-          />
+        
+          <Lottie style={{height: "300px", margin: "40px"}} animationData={require("../assets/animations/clay-crafting.json")} loop={true}/>
           <CtaContainer>
             <CtaP className="cta-paragraph">
               Whether you're looking to share supplies or need to source
@@ -59,7 +59,8 @@ const About = styled.div`
   background: ${colors.craftWhite};
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   height: 40%;
   transform-style: preserve-3d;
@@ -67,6 +68,10 @@ const About = styled.div`
   position: relative;
   margin-bottom: 33vh;
 `;
+
+const AboutContents = styled.div`
+width: 40%
+`
 
 const AboutH2 = styled.h2`
   color: ${colors.craftGrey};
@@ -106,20 +111,15 @@ const JoinCTAContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: space-between;
+  align-items: center;
 `;
 
 const CtaContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 40%;
   margin: 20px;
-`;
-
-const CtaImage = styled.img`
-  height: 300px;
-  width: auto;
-  margin-right: 50px;
 `;
 
 const CtaP = styled.p`
@@ -155,7 +155,7 @@ const Footer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-  margin-top: 50px;
+  margin-top: 10vh;
 `;
 
 const FooterLogo = styled.img`
