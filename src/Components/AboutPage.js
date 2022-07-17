@@ -6,7 +6,8 @@ import Button from "./Button";
 const AboutPage = () => {
   return (
     <Contents className="about-container">
-      <BackgroundImgContainer>
+      <AboutContainer>
+        <ParallaxImage src={require("../assets/bannerImages/backgroundImage1.png")} alt="assortment of handmade pottery"/>
         <About>
           <AboutH2 className="about-heading">
             we are <H2Highlight>Crafters</H2Highlight>
@@ -18,7 +19,6 @@ const AboutPage = () => {
             who reside in the Denver Metro area.
           </AboutP>
         </About>
-        <Gap></Gap>
         <JoinCTAContainer className="join-cta-container">
           <CtaImage
             className="cta-image"
@@ -35,7 +35,7 @@ const AboutPage = () => {
             <Button name="Get Started" link="/profile" />
           </CtaContainer>
         </JoinCTAContainer>
-      </BackgroundImgContainer>
+      </AboutContainer>
       <Footer className="footer">
         <FooterImg
           className="footer-image"
@@ -55,8 +55,17 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-const Gap = styled.div`
-  height: 20vh;
+const About = styled.div`
+  background: ${colors.craftWhite};
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 40%;
+  transform-style: preserve-3d;
+  z-index: 1;
+  position: relative;
+  margin-bottom: 33vh;
 `;
 
 const AboutH2 = styled.h2`
@@ -65,20 +74,18 @@ const AboutH2 = styled.h2`
   margin-bottom: 15px;
   font-weight: 700;
 `;
+
+const H2Highlight = styled.span`
+  color: ${colors.craftPurple};
+  margin-left: 20px;
+`;
+
 const AboutP = styled.p`
   color: ${colors.craftGrey};
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 60px;
   width: 100%;
-`;
-
-const About = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 40%;
-  height: 50vh;
 `;
 
 const Contents = styled.div`
@@ -90,13 +97,12 @@ const Contents = styled.div`
   margin-top: 30px;
 `;
 
-const H2Highlight = styled.span`
-  color: ${colors.craftPurple};
-  margin-left: 20px;
-`;
 const JoinCTAContainer = styled.div`
-  margin-top: 50px;
-  height: 50vh;
+  background: ${colors.craftWhite};
+  position: relative;
+  height: 50%;
+  transform-style: preserve-3d;
+  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -115,6 +121,7 @@ const CtaImage = styled.img`
   width: auto;
   margin-right: 50px;
 `;
+
 const CtaP = styled.p`
   color: ${colors.craftGrey};
   font-size: 20px;
@@ -123,25 +130,32 @@ const CtaP = styled.p`
   margin-bottom: 30px;
 `;
 
-const BackgroundImgContainer = styled.div`
-  width: 100vw;
-  height: 200vh;
-  background-image: url("../assets/bannerImages/backgroundImage1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const AboutContainer = styled.div`
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  perspective: 10px;
+  margin-bottom: 20px;
 `;
+
+const ParallaxImage = styled.img`
+  transform: translateZ(-10px) scale(2);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+`
+
 const Footer = styled.div`
   width: 100vw;
-  height: 30vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+  margin-top: 50px;
 `;
 
 const FooterLogo = styled.img`
