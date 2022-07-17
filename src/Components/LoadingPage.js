@@ -5,7 +5,7 @@ import colors from "../constants/colors";
 
 const LoadingPage = () => {
    return  (
-    <LoadingPageContainer>
+    <LoadingPageContainer className="loading-page">
         <LoadingMessage className="loading-message">Please wait, our application is loading ....</LoadingMessage>
             <Lottie className="loading-animation" style={{height: "800px"}} animationData={require("../assets/animations/drawing.json")} loop={true} />
     </LoadingPageContainer>
