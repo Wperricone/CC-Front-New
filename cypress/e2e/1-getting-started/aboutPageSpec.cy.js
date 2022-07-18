@@ -14,11 +14,9 @@ describe("About Page spec", () => {
     );
   });
 
-  it("should have a section with an image, a paragraph inviting the user to the community, and a button to join", () => {
+  it("should have a section with an animation, a paragraph inviting the user to the community, and a button to join", () => {
     cy.get(".join-cta-container").scrollIntoView();
-    cy.get(".cta-image")
-      .should("have.attr", "src")
-      .should("include", "/static/media/ctaImage1.1694cf5a7b1c12665f9e.png");
+    cy.get(".cta-animation").should("be.visible")
     cy.get(".cta-paragraph").should(
       "contain",
       "Whether you're looking to share supplies or need to source something for your next creative project, Craft Cirle is the virtal marketplace for you. Click below to join our community of Crafters today and get crafting!"
