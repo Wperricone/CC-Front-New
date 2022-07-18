@@ -8,13 +8,13 @@ describe("Craft Circle landing page view", () => {
     //   if (req.body.operationName === 'CreateChannel') {
 
     //   }
-    
+
     //   if (req.body.operationName === 'Channels') {
 
     //   }
     // });
 
-    cy.visit("http://localhost:3000");
+    cy.visit("http://localhost:3000").wait(2000);
   });
 
   it("Should have a Nav Bar", () => {
@@ -24,11 +24,15 @@ describe("Craft Circle landing page view", () => {
     cy.get(".nav-button").eq(1).contains("About");
     cy.get(".nav-button").eq(2).contains("Profile");
 
-    cy.get(".logo").should('have.attr', 'src').should('include','CraftCircleLogo');
+    cy.get(".logo")
+      .should("have.attr", "src")
+      .should("include", "CraftCircleLogo");
   });
 
   it("Should have a banner image", () => {
-    cy.get(".landing-page-img").should('have.attr', 'src').should('include','bannerImage');
+    cy.get(".landing-page-img")
+      .should("have.attr", "src")
+      .should("include", "bannerImage");
   });
 
   it("Should have categories and search bar", () => {
@@ -36,14 +40,23 @@ describe("Craft Circle landing page view", () => {
     cy.get("h1").should("contain", "Categories:");
     cy.get(".category-section").children().should("have.length", 10);
 
-    cy.get(".category-section").children().eq(0).should("contain", "sewing/knitting");
+    cy.get(".category-section")
+      .children()
+      .eq(0)
+      .should("contain", "sewing/knitting");
     cy.get(".category-section").children().eq(1).should("contain", "paper");
     cy.get(".category-section").children().eq(2).should("contain", "baking");
     cy.get(".category-section").children().eq(3).should("contain", "jewelry");
-    cy.get(".category-section").children().eq(4).should("contain", "scrapbook/floral");
+    cy.get(".category-section")
+      .children()
+      .eq(4)
+      .should("contain", "scrapbook/floral");
     cy.get(".category-section").children().eq(5).should("contain", "painting");
     cy.get(".category-section").children().eq(6).should("contain", "drawing");
-    cy.get(".category-section").children().eq(7).should("contain", "wood working");
+    cy.get(".category-section")
+      .children()
+      .eq(7)
+      .should("contain", "wood working");
     cy.get(".category-section").children().eq(8).should("contain", "pottery");
     cy.get(".category-section").children().eq(9).should("contain", "other");
 
@@ -62,7 +75,9 @@ describe("Craft Circle landing page view", () => {
   it("Should be able to sort by category", () => {
     cy.get(".category-section").children().eq(1).click();
     cy.get(".item-card").should("have.length", 1);
-    cy.get(".item-card").eq(0).should("contain", "Multicolored Construction Paper");
+    cy.get(".item-card")
+      .eq(0)
+      .should("contain", "Multicolored Construction Paper");
 
     cy.get(".category-section").children().eq(0).click();
     cy.get(".item-card").should("have.length", 1);
@@ -75,7 +90,9 @@ describe("Craft Circle landing page view", () => {
   it("Should be able to search by craft name", () => {
     cy.get("input").type("multi");
     cy.get(".item-card").should("have.length", 1);
-    cy.get(".item-card").eq(0).should("contain", "Multicolored Construction Paper");
+    cy.get(".item-card")
+      .eq(0)
+      .should("contain", "Multicolored Construction Paper");
 
     cy.get("input").type("example");
     cy.get(".item-card").should("have.length", 0);
@@ -88,7 +105,9 @@ describe("Craft Circle landing page view", () => {
     cy.get(".item-card").eq(0).should("contain", "Dixon Ticonderoga");
     cy.get(".category-section").children().eq(1).click();
     cy.get(".item-card").should("have.length", 1);
-    cy.get(".item-card").eq(0).should("contain", "Multicolored Construction Paper");
+    cy.get(".item-card")
+      .eq(0)
+      .should("contain", "Multicolored Construction Paper");
   });
 
   it("Should be able to click on an item card and go to a details page for that item", () => {
@@ -105,7 +124,5 @@ describe("Craft Circle landing page view", () => {
 
     cy.get(".nav-button").eq(2).click();
     cy.url().should("contain", "http://localhost:3000/profile");
-
   });
-
 });
