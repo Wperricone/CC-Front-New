@@ -13,6 +13,7 @@ import Login from "./Login";
 import NoMatch from "./NoMatch";
 import LoadingPage from "./LoadingPage";
 import Confirmation from "./Confirmation";
+import ErrorPage from "./ErrorPage";
 
 const GET_ITEMS = gql`
   query getItems {
@@ -84,7 +85,7 @@ function App() {
   }, [allCraftItems.data]);
 
   if (loading) return <LoadingPage/>;
-  if (error) return <p>Error</p>;
+  if (error) return <ErrorPage/>;
   return (
     <main>
       <NavBar />
