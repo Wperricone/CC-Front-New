@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import Lottie from "lottie-react";
 import colors from "../constants/colors";
 import Button from "./Button";
 
 const AboutPage = () => {
   return (
     <Contents className="about-container">
-      <BackgroundImgContainer>
+      <AboutContainer>
+        <ParallaxImage src={require("../assets/bannerImages/backgroundImage1.png")} alt="assortment of handmade pottery"/>
         <About>
+          <AboutContents>
           <AboutH2 className="about-heading">
             we are <H2Highlight>Crafters</H2Highlight>
           </AboutH2>
@@ -17,14 +20,11 @@ const AboutPage = () => {
             accessible. Currently, this platform is meant for community members
             who reside in the Denver Metro area.
           </AboutP>
+          </AboutContents>
         </About>
-        <Gap></Gap>
         <JoinCTAContainer className="join-cta-container">
-          <CtaImage
-            className="cta-image"
-            src={require("../assets/bannerImages/ctaImage1.png")}
-            alt="brightly-colored woven rounds"
-          />
+        
+          <Lottie className="cta-animation" style={{height: "300px", margin: "40px"}} animationData={require("../assets/animations/clay-crafting.json")} loop={true}/>
           <CtaContainer>
             <CtaP className="cta-paragraph">
               Whether you're looking to share supplies or need to source
@@ -35,7 +35,7 @@ const AboutPage = () => {
             <Button name="Get Started" link="/profile" />
           </CtaContainer>
         </JoinCTAContainer>
-      </BackgroundImgContainer>
+      </AboutContainer>
       <Footer className="footer">
         <FooterImg
           className="footer-image"
@@ -55,9 +55,23 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-const Gap = styled.div`
-  height: 20vh;
+const About = styled.div`
+  background: ${colors.craftWhite};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 40%;
+  transform-style: preserve-3d;
+  z-index: 1;
+  position: relative;
+  margin-bottom: 33vh;
 `;
+
+const AboutContents = styled.div`
+width: 40%
+`
 
 const AboutH2 = styled.h2`
   color: ${colors.craftGrey};
@@ -65,20 +79,18 @@ const AboutH2 = styled.h2`
   margin-bottom: 15px;
   font-weight: 700;
 `;
+
+const H2Highlight = styled.span`
+  color: ${colors.craftPurple};
+  margin-left: 20px;
+`;
+
 const AboutP = styled.p`
   color: ${colors.craftGrey};
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 60px;
   width: 100%;
-`;
-
-const About = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 40%;
-  height: 50vh;
 `;
 
 const Contents = styled.div`
@@ -90,31 +102,26 @@ const Contents = styled.div`
   margin-top: 30px;
 `;
 
-const H2Highlight = styled.span`
-  color: ${colors.craftPurple};
-  margin-left: 20px;
-`;
 const JoinCTAContainer = styled.div`
-  margin-top: 50px;
-  height: 50vh;
+  background: ${colors.craftWhite};
+  position: relative;
+  height: 50%;
+  transform-style: preserve-3d;
+  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: space-between;
+  align-items: center;
 `;
 
 const CtaContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 40%;
   margin: 20px;
 `;
 
-const CtaImage = styled.img`
-  height: 300px;
-  width: auto;
-  margin-right: 50px;
-`;
 const CtaP = styled.p`
   color: ${colors.craftGrey};
   font-size: 20px;
@@ -123,25 +130,32 @@ const CtaP = styled.p`
   margin-bottom: 30px;
 `;
 
-const BackgroundImgContainer = styled.div`
-  width: 100vw;
-  height: 200vh;
-  background-image: url("../assets/bannerImages/backgroundImage1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const AboutContainer = styled.div`
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  perspective: 10px;
+  margin-bottom: 20px;
 `;
+
+const ParallaxImage = styled.img`
+  transform: translateZ(-10px) scale(2);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+`
+
 const Footer = styled.div`
   width: 100vw;
-  height: 30vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+  margin-top: 10vh;
 `;
 
 const FooterLogo = styled.img`
