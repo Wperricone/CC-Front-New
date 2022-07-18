@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import Button from "./Button";
+import ColorChanger from "./ColorChanger";
+import InventoryContainer from "./InventoryContainer";
 
-import users from "../data/users.json";
-
-const UserProfile = () => {
+const UserProfile = ({ user }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentColor, setCurrentColor] = useState("craftBlue");
 
   useEffect(() => {
-    setCurrentUser(users.data.getUsers[0]);
+    setCurrentUser(user.details);
   }, []);
 
   if (!currentUser) {
@@ -18,10 +18,10 @@ const UserProfile = () => {
       <UserProfileSection className="user-profile">
         <SignInImage
           className="not-signed-in-img"
-          // src={require(`../assets/`)}
+          src={require(`../assets/userProfileImgs/CCpaintbrushbro-01.png`)}
           alt="not signed in image"
         />
-        <SectionHeader>
+        <SectionHeader style={{ color: colors.craftGreen }}>
           You're not signed in! Click the button below to sign in or create an
           account.
         </SectionHeader>
@@ -33,31 +33,41 @@ const UserProfile = () => {
   return (
     <UserProfileSection className="user-profile">
       <BannerImg
-        className="not-signed-in-img"
+        className="user-banner-img"
         src={require(`../assets/userProfileImgs/userBannerImg.jpg`)}
         alt=""
       />
       <ProfilePicture
-        className="not-signed-in-img"
+        className="profile-picture"
         src={require(`../assets/userProfileImgs/CCProfilePic-01.png`)}
         alt="your profile picture"
         style={{ boxShadow: `-12px -12px 0px ${colors[currentColor]}` }}
       />
-      <ProfileName style={{ color: `${colors[currentColor]}` }}>
+      <ProfileName
+        className="profile-user-name"
+        style={{ color: colors[currentColor] }}
+      >
         {currentUser.name}
       </ProfileName>
-      <ProfileEmail style={{ color: `${colors[currentColor]}` }}>
+      <ProfileEmail
+        className="profile-user-email"
+        style={{ color: colors[currentColor] }}
+      >
         {currentUser.email}
       </ProfileEmail>
-      <SectionHeader style={{ color: `${colors[currentColor]}` }}>
+      <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
-      <CraftDisplaySection></CraftDisplaySection>
+      <InventoryContainer color={currentColor} data={user.inventory} />
       <Button name={"Add Craft"} link={"/contribution"} />
-      <SectionHeader style={{ color: `${colors[currentColor]}` }}>
+      {/* <SectionHeader style={{ color: colors[currentColor] }}>
         Borrowed Supplies
       </SectionHeader>
-      <CraftDisplaySection></CraftDisplaySection>
+      <InventoryContainer
+        color={currentColor}
+        data={userProfile.data.getUserItems}
+      /> */}
+      <ColorChanger color={currentColor} updateColor={setCurrentColor} />
       <Button name={"Log Out"} link={"/login"} />
     </UserProfileSection>
   );
@@ -99,20 +109,13 @@ const ProfileEmail = styled.h2`
   font-weight: 900;
 `;
 
-const CraftDisplaySection = styled.section`
-  width: 90vw;
-  padding: 5vw;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
-  justify-items: center;
-  align-items: center;
-  margin-bottom: 5vh;
-`;
-
 const SectionHeader = styled.h1`
+  text-align: center;
   font-size: 30px;
   font-weight: 900;
 `;
 
-const SignInImage = styled.img``;
+const SignInImage = styled.img`
+  width: 230px;
+  height: 230px;
+`;
