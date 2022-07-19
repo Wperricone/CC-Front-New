@@ -5,13 +5,18 @@ import Button from "./Button";
 import ColorChanger from "./ColorChanger";
 import InventoryContainer from "./InventoryContainer";
 
-const UserProfile = ({ user }) => {
+const UserProfile = ({ user, setUser }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentColor, setCurrentColor] = useState("craftBlue");
 
   useEffect(() => {
-    setCurrentUser(user.details);
+      setCurrentUser(user);
   }, []);
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setUser(null);
+  }
 
   if (!currentUser) {
     return (
@@ -58,7 +63,7 @@ const UserProfile = ({ user }) => {
       <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
-      <InventoryContainer color={currentColor} data={user.inventory} />
+      <InventoryContainer color={currentColor} data={user.items} />
       <Button name={"Add Craft"} link={"/contribution"} />
       {/* <SectionHeader style={{ color: colors[currentColor] }}>
         Borrowed Supplies
@@ -68,7 +73,7 @@ const UserProfile = ({ user }) => {
         data={userProfile.data.getUserItems}
       /> */}
       <ColorChanger color={currentColor} updateColor={setCurrentColor} />
-      <Button name={"Log Out"} link={"/login"} />
+      <Button name={"Log Out"} action={handleLogout} link={"/login"} />
     </UserProfileSection>
   );
 };
