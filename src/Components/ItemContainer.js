@@ -3,7 +3,6 @@ import React from "react";
 import ItemCard from "./ItemCard";
 
 const ItemContainer = ({ itemData }) => {
-
   const items = itemData.map((item) => {
     return (
       <ItemCard
@@ -18,14 +17,15 @@ const ItemContainer = ({ itemData }) => {
   });
 
   return (
-      <>
-      {items.length ? 
-         <ItemContainerSection className="item-container">
-            {items}
-         </ItemContainerSection>
-         : <h2>Nothing Found!</h2>
-      }
-      </>
+    <>
+      {items.length ? (
+        <ItemContainerSection className="item-container">
+          {items}
+        </ItemContainerSection>
+      ) : (
+        <h2>Nothing Found!</h2>
+      )}
+    </>
   );
 };
 
@@ -36,10 +36,8 @@ const ItemContainerSection = styled.section`
   padding: 5vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
+  gap: 50px;
   justify-items: center;
   align-items: center;
   margin-bottom: 10vh;
 `;
-
-

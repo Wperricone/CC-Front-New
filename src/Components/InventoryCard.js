@@ -51,7 +51,7 @@ const ItemCardImg = styled.img`
 `;
 
 const ItemH4 = styled.h4`
-  font-size: 20pt;
+  font-size: 15pt;
   margin: 0;
 `;
 const ItemP = styled.p`
