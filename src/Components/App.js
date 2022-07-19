@@ -20,9 +20,9 @@ const GET_ITEMS = gql`
       id
       name
       description
+      available
       category
       status
-      available
       amount
       user {
         id
@@ -33,23 +33,23 @@ const GET_ITEMS = gql`
   }
 `;
 
-const GET_USER = gql`
-  query getAUser {
-    details: getAUser(email: "phillip@email.com") {
-      id
-      email
-      name
-    }
-    inventory: getUserItems(id: 1) {
-      name
-      description
-      category
-      status
-      available
-      amount
-    }
-  }
-`;
+// const GET_USER = gql`
+//   query getAUser {
+//     details: getAUser(email: "phillip@email.com") {
+//       id
+//       email
+//       name
+//     }
+//     inventory: getUserItems(id: 1) {
+//       name
+//       description
+//       category
+//       status
+//       available
+//       amount
+//     }
+//   }
+// `;
 
 function App() {
   // const { loading, error, data } = useQuery(GET_ITEMS);
@@ -60,13 +60,16 @@ function App() {
   };
 
   const allCraftItems = useQuery(GET_ITEMS);
-  const currentUser = useQuery(GET_USER);
+  //const currentUser = useQuery(GET_USER);
 
-  const loading = allCraftItems.loading || currentUser.loading;
-  const error = allCraftItems.error || currentUser.error;
+  // const loading = allCraftItems.loading || currentUser.loading;
+  // const error = allCraftItems.error || currentUser.error;
+
+  const loading = allCraftItems.loading;
+  const error = allCraftItems.error;
 
   const [allItems, setAllItems] = useState([]);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   // useEffect(() => {
   //   if (data && data.items) {
@@ -76,13 +79,13 @@ function App() {
 
   useEffect(() => {
     if (allCraftItems.data && allCraftItems.data.items) {
-      setUser(currentUser.data);
+      //setUser(currentUser.data);
       setAllItems(allCraftItems.data.items);
     }
   }, [allCraftItems.data]);
 
   if (loading) return <LoadingPage/>;
-  if (error) return <p>Error</p>;
+  if (error) console.log("ERROR", error);
   return (
     <main>
       <NavBar />
@@ -101,7 +104,7 @@ function App() {
           element={<ItemExpanded findItem={findItem} />}
         />
         <Route exact path="confirmation" element={<Confirmation />} />
-        <Route exact path="login" element={<Login />} />
+        <Route exact path="login" element={<Login setUser={setUser} />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </main>

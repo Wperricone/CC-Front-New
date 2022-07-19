@@ -1,12 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import Button from './Button';
 import colors from "../constants/colors";
 import { Link } from "react-router-dom";
+import { useQuery, gql } from "@apollo/client";
 
-const Login = () => {
+
+const GET_USER = gql`
+  query getAUser($email: Email!) {
+    details: getAUser(email: $email) {
+      id
+      email
+      name
+			items {
+				id
+				name
+				description
+				available
+				category
+				status
+				amount
+			}
+    }
+  }
+`;
+
+const Login = ({setUser}) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const currentUser = useQuery(GET_USER, {
+			variables: {email}
+		});
+
+useEffect(() => {
+	handleLogin()
+}, [currentUser.data]);
+
+    const handleLogin = () => {        
+        if (password === "password") {
+            setUser(currentUser.data)
+						console.log("HERE", currentUser.data)
+        } 
+				console.log("THERE")
+    }
+
     return (
         <LoginPageSection className="login-page">
             <LoginBox className="login-modal">
@@ -16,7 +53,7 @@ const Login = () => {
                 <Input type="text" onChange={(e) => setPassword(e.target.value)} value={password}/>
                 <Text>Don't have an account? Sign up <SignUpLink to="/">here!</SignUpLink></Text>
             </LoginBox>
-                <Button name="Login" link="/profile"/>
+                <Button action={handleLogin} name="Login" link="/profile"/>
         </LoginPageSection>
     )
 }

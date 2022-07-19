@@ -10,7 +10,11 @@ const UserProfile = ({ user }) => {
   const [currentColor, setCurrentColor] = useState("craftBlue");
 
   useEffect(() => {
-    setCurrentUser(user.details);
+    if (!user) {
+      setCurrentUser(user)
+    } else {
+      setCurrentUser(user.details);
+    }
   }, []);
 
   if (!currentUser) {
