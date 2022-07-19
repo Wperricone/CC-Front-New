@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
 import Button from './Button';
 import colors from "../constants/colors";
-import { Link } from "react-router-dom";
-import { useQuery, gql } from "@apollo/client";
+import { Link, useNavigate } from "react-router-dom";
+import { useQuery, gql, useLazyQuery } from "@apollo/client";
 
 
 const GET_USER = gql`
-  query getAUser($email: Email!) {
+  query getAUser($email: String!) {
     details: getAUser(email: $email) {
       id
       email
@@ -25,23 +25,25 @@ const GET_USER = gql`
   }
 `;
 
-const Login = ({setUser}) => {
+const Login = ({loginUser}) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const currentUser = useQuery(GET_USER, {
-			variables: {email}
-		});
+		const [getUser, {loading, error, data}] = 
+		useLazyQuery( GET_USER);
 
-useEffect(() => {
-	handleLogin()
-}, [currentUser.data]);
-
-    const handleLogin = () => {        
+		let navigate = useNavigate();
+		
+		const handleLogin = () => {        		
         if (password === "password") {
-            setUser(currentUser.data)
-						console.log("HERE", currentUser.data)
-        } 
-				console.log("THERE")
+					getUser({variables: {email: email}})
+						.then((data) => {
+							loginUser(data.data.details)
+								if(data.data.details) {
+									navigate("/profile")
+								}
+							console.log("WHITNEY", data.data.details)
+						})
+					} 
     }
 
     return (
@@ -53,7 +55,7 @@ useEffect(() => {
                 <Input type="text" onChange={(e) => setPassword(e.target.value)} value={password}/>
                 <Text>Don't have an account? Sign up <SignUpLink to="/">here!</SignUpLink></Text>
             </LoginBox>
-                <Button action={handleLogin} name="Login" link="/profile"/>
+                <Button action={handleLogin} name="Login" link=""/>
         </LoginPageSection>
     )
 }

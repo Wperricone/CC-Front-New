@@ -84,6 +84,10 @@ function App() {
     }
   }, [allCraftItems.data]);
 
+  const loginUser = (userData) => {
+    setUser(userData)
+  }
+
   if (loading) return <LoadingPage/>;
   if (error) console.log("ERROR", error);
   return (
@@ -104,7 +108,7 @@ function App() {
           element={<ItemExpanded findItem={findItem} />}
         />
         <Route exact path="confirmation" element={<Confirmation />} />
-        <Route exact path="login" element={<Login setUser={setUser} />} />
+        <Route exact path="login" element={<Login loginUser={loginUser} />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </main>

@@ -10,11 +10,7 @@ const UserProfile = ({ user }) => {
   const [currentColor, setCurrentColor] = useState("craftBlue");
 
   useEffect(() => {
-    if (!user) {
-      setCurrentUser(user)
-    } else {
-      setCurrentUser(user.details);
-    }
+      setCurrentUser(user);
   }, []);
 
   if (!currentUser) {
@@ -62,7 +58,7 @@ const UserProfile = ({ user }) => {
       <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
-      <InventoryContainer color={currentColor} data={user.inventory} />
+      <InventoryContainer color={currentColor} data={user.items} />
       <Button name={"Add Craft"} link={"/contribution"} />
       {/* <SectionHeader style={{ color: colors[currentColor] }}>
         Borrowed Supplies
