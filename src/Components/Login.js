@@ -30,25 +30,32 @@ const Login = ({loginUser}) => {
     const [password, setPassword] = useState("")
 		const [getUser, {loading, error, data}] = 
 		useLazyQuery( GET_USER);
-
+		const [badLogin, setBadLogin] = useState(false)
 		let navigate = useNavigate();
 		
 		const handleLogin = () => {        		
         if (password === "password") {
 					getUser({variables: {email: email}})
 						.then((data) => {
-							loginUser(data.data.details)
-								if(data.data.details) {
+							if(data.data) {
+								setBadLogin(false)
+								loginUser(data.data.details)
 									navigate("/profile")
+								} else {
+									setBadLogin(true)
 								}
-							console.log("WHITNEY", data.data.details)
 						})
-					} 
+					} else {
+						setBadLogin(true)
+					}
     }
 
     return (
         <LoginPageSection className="login-page">
             <LoginBox className="login-modal">
+							{badLogin && <LoginError>Invalid email or password. Please try again.
+							</LoginError>
+							}
                 <Label>Email:</Label>
                 <Input type="text" onChange={(e) => setEmail(e.target.value)} value={email}/>
                 <Label>Password:</Label>
@@ -107,4 +114,10 @@ const SignUpLink = styled(Link)`
     font-size: 15px;
     font-weight: 700;
     color: ${colors.craftOrange};
+`;
+
+const LoginError = styled.p`
+font-size: 15px;
+font-weight: 700;
+color: ${colors.craftOrange};
 `;
