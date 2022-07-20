@@ -71,7 +71,6 @@ const Form = ({ addItem, user }) => {
       });
     } else {
       setMissingInfo(true);
-      console.log("nope");
     }
   };
 
@@ -194,6 +193,7 @@ const AddImage = styled.div`
 `;
 
 const InputDescription = styled.textarea`
+  text-indent: 10px;
   border: 0;
   border-radius: 15px;
 `;

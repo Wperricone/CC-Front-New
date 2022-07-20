@@ -3,28 +3,36 @@ import styled from "styled-components";
 import Lottie from "lottie-react";
 import colors from "../constants/colors";
 import Button from "./Button";
+import logo from "../assets/CraftCircleLogo-01.svg";
 
 const AboutPage = () => {
   return (
     <Contents className="about-container">
       <AboutContainer>
-        <ParallaxImage src={require("../assets/bannerImages/backgroundImage1.png")} alt="assortment of handmade pottery"/>
+        <ParallaxImage
+          src={require("../assets/bannerImages/backgroundImage1.png")}
+          alt="assortment of handmade pottery"
+        />
         <About>
           <AboutContents>
-          <AboutH2 className="about-heading">
-            we are <H2Highlight>Crafters</H2Highlight>
-          </AboutH2>
-          <AboutP className="about-paragraph">
-            Craft Circle is an online community where crafters can borrow and
-            donate supplies in an effort to make creative outlets more
-            accessible. Currently, this platform is meant for community members
-            who reside in the Denver Metro area.
-          </AboutP>
+            <AboutH2 className="about-heading">
+              We are <H2Highlight>Crafters</H2Highlight>
+            </AboutH2>
+            <AboutP className="about-paragraph">
+              Craft Circle is an online community where crafters can borrow and
+              donate supplies in an effort to make creative outlets more
+              accessible. Currently, this platform is meant for community
+              members who reside in the Denver Metro area.
+            </AboutP>
           </AboutContents>
         </About>
         <JoinCTAContainer className="join-cta-container">
-        
-          <Lottie className="cta-animation" style={{height: "300px", margin: "40px"}} animationData={require("../assets/animations/clay-crafting.json")} loop={true}/>
+          <Lottie
+            className="cta-animation"
+            style={{ height: "300px", margin: "40px" }}
+            animationData={require("../assets/animations/clay-crafting.json")}
+            loop={true}
+          />
           <CtaContainer>
             <CtaP className="cta-paragraph">
               Whether you're looking to share supplies or need to source
@@ -35,19 +43,21 @@ const AboutPage = () => {
             <Button name="Get Started" link="/profile" />
           </CtaContainer>
         </JoinCTAContainer>
-      <Footer className="footer">
-        <FooterImg
-          className="footer-image"
-          src={require("../assets/bannerImages/bannerImage4.png")}
-          alt="water color palette"
-        />
-        <FooterLogo
-          className="footer-logo"
-          src={require("../assets/CraftCircleLogo-06.png")}
-          alt="craft circle logo"
-        />
-        <FooterH3 className="footer-tagline">crafting community one stitch at a time</FooterH3>
-      </Footer>
+        <Footer className="footer">
+          <FooterImg
+            className="footer-image"
+            src={require("../assets/bannerImages/bannerImage4.png")}
+            alt="water color palette"
+          />
+          <FooterLogo
+            className="footer-logo"
+            src={logo}
+            alt="craft circle logo"
+          />
+          <FooterH3 className="footer-tagline">
+            crafting community one stitch at a time
+          </FooterH3>
+        </Footer>
       </AboutContainer>
     </Contents>
   );
@@ -62,7 +72,7 @@ const About = styled.div`
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  height: 40%;
+  height: 50%;
   transform-style: preserve-3d;
   z-index: 1;
   position: relative;
@@ -70,19 +80,22 @@ const About = styled.div`
 `;
 
 const AboutContents = styled.div`
-  width: 40%
-`
+  width: 40%;
+  height: 100%;
+`;
 
 const AboutH2 = styled.h2`
   color: ${colors.craftGrey};
   font-size: 60px;
   margin-bottom: 15px;
+  margin-top: 5%;
   font-weight: 700;
 `;
 
 const H2Highlight = styled.span`
   color: ${colors.craftPurple};
   margin-left: 20px;
+  margin-top: 5%;
 `;
 
 const AboutP = styled.p`
@@ -145,7 +158,7 @@ const ParallaxImage = styled.img`
   width: 100%;
   object-fit: cover;
   z-index: -1;
-`
+`;
 
 const Footer = styled.div`
   width: 100vw;
@@ -155,7 +168,6 @@ const Footer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-
 `;
 
 const FooterLogo = styled.img`
