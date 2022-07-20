@@ -30,7 +30,7 @@
 <hr>
 
 ## **Background and Description**
-<a href="<herokuapp url>" **Craft Circle**</a><br><br>
+<a href="" **Craft Circle**</a><br><br>
 Craft Circle is an online community where crafters can arrange cost-free trade of tools and supplies in an effort to make creativity more accessible.
 
 Using __Craft Circle__, users are able to:
