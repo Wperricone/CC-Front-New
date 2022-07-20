@@ -43,7 +43,7 @@ const CREATE_ITEM = gql`
   }
 `;
 
-const Form = ({ user }) => {
+const Form = ({ addItem, user }) => {
   const [itemName, setItemName] = useState("");
   const [amount, setItemAmount] = useState(0);
   const [description, setItemDescription] = useState("");
@@ -64,7 +64,10 @@ const Form = ({ user }) => {
             status: 0,
             userId: user.id,
         },
-      });
+      }).then((response) => {
+        console.log("Response:", response.data.createItem.item);
+        addItem(response.data.createItem.item)
+      })
     } else {
       setMissingInfo(true);
       console.log("nope");

@@ -33,24 +33,6 @@ const GET_ITEMS = gql`
   }
 `;
 
-// const GET_USER = gql`
-//   query getAUser {
-//     details: getAUser(email: "phillip@email.com") {
-//       id
-//       email
-//       name
-//     }
-//     inventory: getUserItems(id: 1) {
-//       name
-//       description
-//       category
-//       status
-//       available
-//       amount
-//     }
-//   }
-// `;
-
 function App() {
   // const { loading, error, data } = useQuery(GET_ITEMS);
   const findItem = (id) => {
@@ -88,6 +70,10 @@ function App() {
     setUser(userData);
   };
 
+  const addItem = (item) => {
+    setAllItems([...allItems, item])
+  }
+
   if (loading) return <LoadingPage />;
   if (error) console.log("ERROR", error);
   return (
@@ -97,7 +83,7 @@ function App() {
         <Route
           exact
           path="/"
-          element={<LandingPage itemData={allCraftItems.data.items} />}
+          element={<LandingPage itemData={allItems.length ? allItems : allCraftItems.data.items} />}
         />
         <Route exact path="about" element={<AboutPage />} />
         <Route
@@ -105,7 +91,7 @@ function App() {
           path="profile"
           element={<UserProfile user={user} setUser={setUser} />}
         />
-        <Route exact path="contribution" element={<Form user={user} />} />
+        <Route exact path="contribution" element={<Form addItem={addItem} user={user} />} />
         <Route
           exact
           path="craft/:craftId"
