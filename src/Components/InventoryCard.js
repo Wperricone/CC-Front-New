@@ -27,7 +27,10 @@ const InventoryCard = ({ name, amount, color, id, removeItem }) => {
         />
         <StyledPopup
           trigger={
-            <DeleteButton style={{ background: colors[color] }}>
+            <DeleteButton
+              className="delete-btn"
+              style={{ background: colors[color] }}
+            >
               delete
             </DeleteButton>
           }
@@ -35,7 +38,9 @@ const InventoryCard = ({ name, amount, color, id, removeItem }) => {
           nested
           closeOnDocumentClick
         >
-          {(close) => <PopupModal removeItem={removeItem} id={id} close={close} />}
+          {(close) => (
+            <PopupModal removeItem={removeItem} id={id} close={close} />
+          )}
         </StyledPopup>
       </ItemBoxDiv>
     </ItemCardSection>
