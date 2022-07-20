@@ -2,7 +2,6 @@ import { click } from "@testing-library/user-event/dist/click";
 
 describe("About Page spec", () => {
   beforeEach(() => {
-    // cy.intercept("craft-circle-be.herokuapp.com/graphql", {fixture: "userProfile.json"})
     cy.visit("http://localhost:3000").wait(2000);
     cy.get("button").contains("About").click();
   });
@@ -16,7 +15,7 @@ describe("About Page spec", () => {
 
   it("should have a section with an animation, a paragraph inviting the user to the community, and a button to join", () => {
     cy.get(".join-cta-container").scrollIntoView();
-    cy.get(".cta-animation").should("be.visible")
+    cy.get(".cta-animation").should("be.visible");
     cy.get(".cta-paragraph").should(
       "contain",
       "Whether you're looking to share supplies or need to source something for your next creative project, Craft Cirle is the virtal marketplace for you. Click below to join our community of Crafters today and get crafting!"
@@ -46,20 +45,10 @@ describe("About Page spec", () => {
     cy.url().should("eq", "http://localhost:3000/profile");
   });
 
-  it.skip("should propmt the user to create a profile or login if they are not logged in", () => {
-    //this test will be added once login functionality is implemented and we can simulate a user flow as such.
-  });
-
   it("should allow the user to return to the homepage", () => {
     cy.get("button").contains("All Crafts").click();
     cy.get(".landing-page-img")
       .should("have.attr", "alt")
       .should("include", "crafts-in-action");
   });
-
-  it.skip("should allow the user to return to visit their profile from the nav bar", () => {
-    cy.get("button").contains("Profile").click();
-    cy.get(".about-container").contains("we are Crafters");
-  });
-  //skipped to be updated when profile component is completed.
 });

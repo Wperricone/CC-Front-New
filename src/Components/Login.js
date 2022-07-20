@@ -37,7 +37,6 @@ const Login = ({ loginUser }) => {
         if (data.data) {
           setBadLogin(false);
           loginUser(data.data.details);
-          console.log(data);
           navigate("/profile");
         } else {
           setBadLogin(true);

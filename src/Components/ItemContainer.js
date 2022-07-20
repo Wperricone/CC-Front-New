@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import ItemCard from "./ItemCard";
+import colors from "../constants/colors";
 
 const ItemContainer = ({ itemData }) => {
   const items = itemData.map((item) => {
@@ -23,7 +24,7 @@ const ItemContainer = ({ itemData }) => {
           {items}
         </ItemContainerSection>
       ) : (
-        <h2>Nothing Found!</h2>
+        <h2 style={{ color: colors.craftBlack }}>Nothing Found!</h2>
       )}
     </>
   );

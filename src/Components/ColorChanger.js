@@ -65,15 +65,16 @@ const ColorBar = styled.div`
 `;
 
 const ColorBox = styled.div`
-width: 50px;
-height: 50px;
-margin: 10px;
-border-radius: 5px;
-cursor: pointer;
-&: hover {
-  margin-right: 15px;
-  margin-bottom: 15px;
-  margin-left: 5px;
-  margin-top: 5px;
-  box-shadow: 5px 5px 0px ${colors.craftBlack};
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: 5px 5px 0px ${colors.craftBlack};
+  }
 `;

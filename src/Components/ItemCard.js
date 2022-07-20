@@ -112,7 +112,3 @@ const ItemCardSection = styled.section`
     background: ${colors.craftGrey};
   }
 `;
-//DATA
-// id, userid, name, type, description, available, quantity, exchange_status
-
-// user => id, name, email
