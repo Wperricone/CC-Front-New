@@ -83,7 +83,7 @@ const Form = ({ addItem, user }) => {
       <CraftFormSection>
         <AddImage>Upload your image here</AddImage>
         <CraftForm className="add-item">
-          <Instructions>
+          <Instructions className="instructions">
             Thank you for contributing to the crafting community! Please fill
             out the information below to add your craft item:
           </Instructions>
@@ -127,6 +127,7 @@ const Form = ({ addItem, user }) => {
           <FormInputContainer>
             <Label>Description</Label>
             <InputDescription
+              className="description"
               rows="5"
               cols="70"
               type="text"
