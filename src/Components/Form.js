@@ -53,22 +53,22 @@ const Form = ({ addItem, user }) => {
   const navigate = useNavigate();
 
   const handleCreateItem = (e) => {
-    if (itemName && amount && description && category !== 99  ) {
+    if (itemName && amount && description && category !== 99) {
       e.preventDefault();
       createItem({
         variables: {
-            name: itemName,
-            category: category,
-            description: description,
-            available: 1,
-            amount: amount,
-            status: 0,
-            userId: user.id,
+          name: itemName,
+          category: category,
+          description: description,
+          available: 1,
+          amount: amount,
+          status: 0,
+          userId: user.id,
         },
       }).then((response) => {
         addItem(response.data.createItem.item);
         navigate("/confirmation");
-      })
+      });
     } else {
       setMissingInfo(true);
       console.log("nope");
@@ -87,6 +87,12 @@ const Form = ({ addItem, user }) => {
             Thank you for contributing to the crafting community! Please fill
             out the information below to add your craft item:
           </Instructions>
+          {missingInfo && (
+            <FormError>
+              Looks like you're still missing something. Please complete all the
+              fields.
+            </FormError>
+          )}
           <FormInputContainer>
             <Label>Name</Label>
             <Input
@@ -211,4 +217,10 @@ const Instructions = styled.p`
 
 const FormInputContainerCategory = styled.div`
   margin-left: 15%;
+`;
+
+const FormError = styled.p`
+  font-size: 15px;
+  font-weight: 700;
+  color: ${colors.craftOrange};
 `;
