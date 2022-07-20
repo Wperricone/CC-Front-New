@@ -68,7 +68,12 @@ function App() {
   const addItem = (item) => {
     setAllItems([...allItems, item])
     setUserItems([...userItems, item])
-  }
+  };
+
+  const removeItem = (id) => {
+    setAllItems(allItems.filter(item => item.id !== id))
+    setUserItems(userItems.filter(item => item.id !== id))
+  };
 
   if (loading) return <LoadingPage />;
   if (error) console.log("ERROR", error);
@@ -85,7 +90,7 @@ function App() {
         <Route
           exact
           path="profile"
-          element={<UserProfile user={user} userItems={userItems} setUser={setUser} />}
+          element={<UserProfile removeItem={removeItem} user={user} userItems={userItems} setUser={setUser} />}
         />
         <Route exact path="contribution" element={<Form addItem={addItem} user={user} />} />
         <Route

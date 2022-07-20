@@ -2,8 +2,35 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import Button from "./Button";
+import { gql, useMutation } from "@apollo/client";
 
-const PopupModal = ({ close }) => {
+const DELETE_ITEM = gql`
+  mutation deleteItem(
+    $id: ID!
+  ) {
+    deleteItem(input:{id: $id}){
+      success
+    }
+  }
+`;
+
+const PopupModal = ({ id, close, removeItem }) => {
+  const [deleteItem, { loading, error, data }] = useMutation(DELETE_ITEM);
+
+  const handleClick = (e) => {
+    deleteItem({
+      variables: {
+          id: id
+      },
+    }).then((response) => {
+      if (response.data.deleteItem.success) {
+        removeItem(id)
+      } else {
+        console.log("DELETE FAILED");
+      }
+    })
+  }
+
   return (
     <ModalBackground>
       <Message>
@@ -13,7 +40,7 @@ const PopupModal = ({ close }) => {
         <Button
           name={"Yes, delete"}
           link={""}
-          action={() => console.log("deleted")}
+          action={(e) => handleClick(e)}
         />
         <Button name={"No, keep this craft"} link={""} action={() => close()} />
       </BtnContainer>
