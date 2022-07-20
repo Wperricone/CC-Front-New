@@ -7,7 +7,7 @@ describe("About Page spec", () => {
   });
 
   it("should have a title and a paragraph describing the application", () => {
-    cy.get(".about-heading").contains("we are Crafters");
+    cy.get(".about-heading").contains("We are Crafters");
     cy.get(".about-paragraph").contains(
       "Craft Circle is an online community where crafters can borrow and donate supplies in an effort to make creative outlets more accessible. Currently, this platform is meant for community members who reside in the Denver Metro area."
     );
@@ -28,12 +28,7 @@ describe("About Page spec", () => {
     cy.get(".footer-image")
       .should("have.attr", "src")
       .should("include", "/static/media/bannerImage4.48bf2aa73069ed02ac35.png");
-    cy.get(".footer-logo")
-      .should("have.attr", "src")
-      .should(
-        "include",
-        "/static/media/CraftCircleLogo-06.56481d6d54710efa4e63.png"
-      );
+    cy.get(".footer-logo").should("have.attr", "src").should("include", ".svg");
     cy.get(".footer-tagline").contains(
       "crafting community one stitch at a time"
     );

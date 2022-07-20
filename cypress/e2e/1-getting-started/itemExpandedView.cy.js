@@ -98,7 +98,7 @@ describe("Craft Circle landing page view", () => {
 
   it("should allow the user to visit the about page", () => {
     cy.get("button").contains("About").click();
-    cy.get(".about-container").contains("we are Crafters");
+    cy.get(".about-container").contains("We are Crafters");
   });
 
   it("should allow the user to return to the homepage", () => {
