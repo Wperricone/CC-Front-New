@@ -11,6 +11,7 @@ const CREATE_ITEM = gql`
     $category: Int!
     $description: String!
     $available: Int!
+    $amount: Int!
     $status: Int!
     $userId: ID!
   ) {
@@ -51,19 +52,17 @@ const Form = ({ user }) => {
   const [createItem, { loading, error, data }] = useMutation(CREATE_ITEM);
 
   const handleCreateItem = (e) => {
-    if (itemName && amount && description && typeof category === "number") {
+    if (itemName && amount && description && category !== 99  ) {
       e.preventDefault();
       createItem({
         variables: {
-          item: {
             name: itemName,
             category: category,
             description: description,
-            available: amount,
+            available: 1,
             amount: amount,
             status: 0,
             userId: user.id,
-          },
         },
       });
     } else {
@@ -96,9 +95,9 @@ const Form = ({ user }) => {
             <FormInputContainer>
               <Label>Amount</Label>
               <Input
-                type="text"
+                type="number"
                 value={amount}
-                onChange={(e) => setItemAmount(e.target.value)}
+                onChange={(e) => setItemAmount(parseInt(e.target.value))}
               ></Input>
             </FormInputContainer>
             <FormInputContainerCategory>
@@ -107,28 +106,17 @@ const Form = ({ user }) => {
                 className="dropdown-content"
                 onChange={(e) => setItemCategory(parseInt(e.target.value))}
               >
-                <option value="">Please Select</option>
+                <option value="99">Please Select</option>
                 <option value="0">Sewing/Knitting</option>
                 <option value="1">Paper</option>
-                <option value="2">Baking</option>
-                <option value="3">Jewelry</option>
+                <option value="2">Jewelry</option>
+                <option value="3">Baking</option>
                 <option value="4">Scrapbook/Floral</option>
                 <option value="5">Painting</option>
                 <option value="6">Drawing</option>
                 <option value="7">Wood Working</option>
                 <option value="8">Pottery</option>
                 <option value="9">Other</option>
-                {/* <option value="">Please Select</option>
-                <option value="Sewing/Knitting">Sewing/Knitting</option>
-                <option value="Paper">Paper</option>
-                <option value="Baking">Baking</option>
-                <option value="Jewelry">Jewelry</option>
-                <option value="Scrapbook/Floral">Scrapbook/Floral</option>
-                <option value="Painting">Painting</option>
-                <option value="Drawing">Drawing</option>
-                <option value="Wood Working">Wood Working</option>
-                <option value="Pottery">Pottery</option>
-                <option value="Other">Other</option> */}
               </Select>
             </FormInputContainerCategory>
           </CategoryAmountContainer>
