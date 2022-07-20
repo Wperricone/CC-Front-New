@@ -2,12 +2,78 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
+import { gql, useMutation } from "@apollo/client";
 
-const Form = () => {
+const CREATE_ITEM = gql`
+  mutation createItem(
+    $name: String!
+    $category: Int!
+    $description: String!
+    $available: Int!
+    $status: Int!
+    $userId: ID!
+  ) {
+    createItem(
+      input: {
+        name: $name
+        category: $category
+        description: $description
+        available: $available
+        amount: $amount
+        status: $status
+        userId: $userId
+      }
+    ) {
+      item {
+        id
+        name
+        description
+        category
+        available
+        status
+        user {
+          id
+          name
+          email
+        }
+      }
+    }
+  }
+`;
+
+const Form = ({ user }) => {
   const [itemName, setItemName] = useState("");
   const [amount, setItemAmount] = useState(0);
   const [description, setItemDescription] = useState("");
   const [category, setItemCategory] = useState("");
+  const [missingInfo, setMissingInfo] = useState(false);
+  const [createItem, { loading, error, data }] = useMutation(CREATE_ITEM);
+
+  const handleCreateItem = (e) => {
+    if (itemName && amount && description && typeof category === "number") {
+      e.preventDefault();
+      createItem({
+        variables: {
+          item: {
+            name: itemName,
+            category: category,
+            description: description,
+            available: amount,
+            amount: amount,
+            status: 0,
+            userId: user.id,
+          },
+        },
+      });
+    } else {
+      setMissingInfo(true);
+      console.log("nope");
+    }
+  };
+
+  if (loading) return "Submitting...";
+  if (error) return `Submission error! ${error.message}`;
 
   return (
     <Section>
@@ -39,8 +105,20 @@ const Form = () => {
               <Label>Category</Label>
               <Select
                 className="dropdown-content"
-                onChange={(e) => setItemCategory(e.target.value)}
+                onChange={(e) => setItemCategory(parseInt(e.target.value))}
               >
+                <option value="">Please Select</option>
+                <option value="0">Sewing/Knitting</option>
+                <option value="1">Paper</option>
+                <option value="2">Baking</option>
+                <option value="3">Jewelry</option>
+                <option value="4">Scrapbook/Floral</option>
+                <option value="5">Painting</option>
+                <option value="6">Drawing</option>
+                <option value="7">Wood Working</option>
+                <option value="8">Pottery</option>
+                <option value="9">Other</option>
+                {/* <option value="">Please Select</option>
                 <option value="Sewing/Knitting">Sewing/Knitting</option>
                 <option value="Paper">Paper</option>
                 <option value="Baking">Baking</option>
@@ -50,7 +128,7 @@ const Form = () => {
                 <option value="Drawing">Drawing</option>
                 <option value="Wood Working">Wood Working</option>
                 <option value="Pottery">Pottery</option>
-                <option value="Other">Other</option>
+                <option value="Other">Other</option> */}
               </Select>
             </FormInputContainerCategory>
           </CategoryAmountContainer>
@@ -64,9 +142,9 @@ const Form = () => {
               onChange={(e) => setItemDescription(e.target.value)}
             ></InputDescription>
           </FormInputContainer>
-          <Button name={"Add Item"} link={""} />
         </CraftForm>
       </CraftFormSection>
+      <Button name={"Add Item"} link={""} action={handleCreateItem} />
     </Section>
   );
 };

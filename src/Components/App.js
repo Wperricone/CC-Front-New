@@ -85,10 +85,10 @@ function App() {
   }, [allCraftItems.data]);
 
   const loginUser = (userData) => {
-    setUser(userData)
-  }
+    setUser(userData);
+  };
 
-  if (loading) return <LoadingPage/>;
+  if (loading) return <LoadingPage />;
   if (error) console.log("ERROR", error);
   return (
     <main>
@@ -100,8 +100,12 @@ function App() {
           element={<LandingPage itemData={allCraftItems.data.items} />}
         />
         <Route exact path="about" element={<AboutPage />} />
-        <Route exact path="profile" element={<UserProfile user={user} setUser={setUser}/>} />
-        <Route exact path="contribution" element={<Form />} />
+        <Route
+          exact
+          path="profile"
+          element={<UserProfile user={user} setUser={setUser} />}
+        />
+        <Route exact path="contribution" element={<Form user={user} />} />
         <Route
           exact
           path="craft/:craftId"
