@@ -5,10 +5,8 @@ import Button from "./Button";
 import { gql, useMutation } from "@apollo/client";
 
 const DELETE_ITEM = gql`
-  mutation deleteItem(
-    $id: ID!
-  ) {
-    deleteItem(input:{id: $id}){
+  mutation deleteItem($id: ID!) {
+    deleteItem(input: { id: $id }) {
       success
     }
   }
@@ -20,16 +18,16 @@ const PopupModal = ({ id, close, removeItem }) => {
   const handleClick = (e) => {
     deleteItem({
       variables: {
-          id: id
+        id: id,
       },
     }).then((response) => {
       if (response.data.deleteItem.success) {
-        removeItem(id)
+        removeItem(id);
       } else {
         console.log("DELETE FAILED");
       }
-    })
-  }
+    });
+  };
 
   return (
     <ModalBackground>
@@ -38,11 +36,17 @@ const PopupModal = ({ id, close, removeItem }) => {
       </Message>
       <BtnContainer>
         <Button
+          className="yes-delete-btn"
           name={"Yes, delete"}
           link={""}
           action={(e) => handleClick(e)}
         />
-        <Button name={"No, keep this craft"} link={""} action={() => close()} />
+        <Button
+          className="dont-delete-btn"
+          name={"No, keep this craft"}
+          link={""}
+          action={() => close()}
+        />
       </BtnContainer>
     </ModalBackground>
   );

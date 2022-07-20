@@ -35,7 +35,6 @@ const AboutPage = () => {
             <Button name="Get Started" link="/profile" />
           </CtaContainer>
         </JoinCTAContainer>
-      </AboutContainer>
       <Footer className="footer">
         <FooterImg
           className="footer-image"
@@ -49,6 +48,7 @@ const AboutPage = () => {
         />
         <FooterH3 className="footer-tagline">crafting community one stitch at a time</FooterH3>
       </Footer>
+      </AboutContainer>
     </Contents>
   );
 };
@@ -70,7 +70,7 @@ const About = styled.div`
 `;
 
 const AboutContents = styled.div`
-width: 40%
+  width: 40%
 `
 
 const AboutH2 = styled.h2`
@@ -155,7 +155,7 @@ const Footer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-  margin-top: 10vh;
+
 `;
 
 const FooterLogo = styled.img`
