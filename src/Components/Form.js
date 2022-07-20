@@ -50,6 +50,7 @@ const Form = ({ addItem, user }) => {
   const [category, setItemCategory] = useState("");
   const [missingInfo, setMissingInfo] = useState(false);
   const [createItem, { loading, error, data }] = useMutation(CREATE_ITEM);
+  const navigate = useNavigate();
 
   const handleCreateItem = (e) => {
     if (itemName && amount && description && category !== 99  ) {
@@ -65,8 +66,8 @@ const Form = ({ addItem, user }) => {
             userId: user.id,
         },
       }).then((response) => {
-        addItem(response.data.createItem.item)
-
+        addItem(response.data.createItem.item);
+        navigate("/confirmation");
       })
     } else {
       setMissingInfo(true);
