@@ -10,13 +10,13 @@ const UserProfile = ({ user, userItems, setUser, removeItem }) => {
   const [currentColor, setCurrentColor] = useState("craftBlue");
 
   useEffect(() => {
-      setCurrentUser(user);
+    setCurrentUser(user);
   }, []);
 
   const handleLogout = () => {
     setCurrentUser(null);
     setUser(null);
-  }
+  };
 
   if (!currentUser) {
     return (
@@ -63,15 +63,12 @@ const UserProfile = ({ user, userItems, setUser, removeItem }) => {
       <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
-      <InventoryContainer removeItem={removeItem} color={currentColor} data={userItems} />
-      <Button name={"Add Craft"} link={"/contribution"} />
-      {/* <SectionHeader style={{ color: colors[currentColor] }}>
-        Borrowed Supplies
-      </SectionHeader>
       <InventoryContainer
+        removeItem={removeItem}
         color={currentColor}
-        data={userProfile.data.getUserItems}
-      /> */}
+        data={userItems}
+      />
+      <Button name={"Add Craft"} link={"/contribution"} />
       <ColorChanger color={currentColor} updateColor={setCurrentColor} />
       <Button name={"Log Out"} action={handleLogout} link={"/login"} />
     </UserProfileSection>
@@ -79,8 +76,6 @@ const UserProfile = ({ user, userItems, setUser, removeItem }) => {
 };
 
 export default UserProfile;
-
-// wireframe shows borrowed crafts, but it is not explicity mentioned in MVP. If we move forward with this, it will have a similar structure to the available section.
 
 const UserProfileSection = styled.section`
   display: flex;

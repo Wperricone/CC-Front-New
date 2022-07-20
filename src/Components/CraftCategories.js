@@ -153,7 +153,7 @@ const CategoryBox = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  &: hover {
+  &:hover {
     margin-right: 10%;
     margin-bottom: 10%;
     margin-top: 0;
@@ -168,7 +168,7 @@ const CategoryBox = styled.div`
     box-shadow: 12px 12px 0px ${colors.craftBlack};
   }
   &:active {
-    margin: 5%; 
+    margin: 5%;
     box-shadow: none;
   }
 `;

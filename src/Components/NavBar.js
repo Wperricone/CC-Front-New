@@ -2,15 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../constants/colors";
+import logo from "../assets/CraftCircleLogo-01.svg";
 
 const NavBar = () => {
   return (
     <Nav className="nav-bar">
-      <Img
-        className="logo"
-        src={require("../assets/CraftCircleLogo-06.png")}
-        alt="craft circle logo"
-      />
+      <Img className="logo" src={logo} alt="craft circle logo" />
       <div>
         <NavLink to={"/"}>
           <Button className="nav-button">
@@ -40,30 +37,30 @@ const Button = styled.button`
   font-size: 25px;
   color: ${colors.craftGreen};
   margin-left: 50px;
-	display: inline-block;
-	position: relative;
+  display: inline-block;
+  position: relative;
   .active & {
     color: ${colors.craftOrange};
   }
-	&: hover {
+  &:hover {
     cursor: pointer;
   }
-	&: after {
-	  background-color: ${colors.craftOrange};
-	  bottom: 0;
-	  content: '';
-	  height: 4px;
-	  left: 0;
-	  position: absolute;
-	  transform: scaleX(0);
-	  transform-origin: bottom right;
-	  transition: transform 0.25s ease-out;
-	  width: 100%;
-	}
-	&: hover:after {
-	  transform: scaleX(1);
-	  transform-origin: bottom left;
-	}
+  &:after {
+    background-color: ${colors.craftOrange};
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    width: 100%;
+  }
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 `;
 
 const H3 = styled.h3`

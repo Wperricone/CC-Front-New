@@ -35,7 +35,6 @@ const GET_ITEMS = gql`
 `;
 
 function App() {
-  // const { loading, error, data } = useQuery(GET_ITEMS);
   const findItem = (id) => {
     if (allCraftItems.data && allCraftItems.data.items) {
       return allItems.find((item) => item.id === id);
@@ -43,17 +42,13 @@ function App() {
   };
 
   const allCraftItems = useQuery(GET_ITEMS);
-  //const currentUser = useQuery(GET_USER);
-
-  // const loading = allCraftItems.loading || currentUser.loading;
-  // const error = allCraftItems.error || currentUser.error;
 
   const loading = allCraftItems.loading;
   const error = allCraftItems.error;
 
   const [allItems, setAllItems] = useState([]);
   const [user, setUser] = useState(null);
-  const [userItems, setUserItems] = useState([])
+  const [userItems, setUserItems] = useState([]);
 
   useEffect(() => {
     if (allCraftItems.data && allCraftItems.data.items) {
@@ -67,17 +62,17 @@ function App() {
   };
 
   const addItem = (item) => {
-    setAllItems([...allItems, item])
-    setUserItems([...userItems, item])
+    setAllItems([...allItems, item]);
+    setUserItems([...userItems, item]);
   };
 
   const removeItem = (id) => {
-    setAllItems(allItems.filter(item => item.id !== id))
-    setUserItems(userItems.filter(item => item.id !== id))
+    setAllItems(allItems.filter((item) => item.id !== id));
+    setUserItems(userItems.filter((item) => item.id !== id));
   };
 
   if (loading) return <LoadingPage />;
-  if (error) return <ErrorPage/>;
+  if (error) return <ErrorPage />;
   return (
     <main>
       <NavBar />
@@ -85,15 +80,30 @@ function App() {
         <Route
           exact
           path="/"
-          element={<LandingPage itemData={allItems.length ? allItems : allCraftItems.data.items} />}
+          element={
+            <LandingPage
+              itemData={allItems.length ? allItems : allCraftItems.data.items}
+            />
+          }
         />
         <Route exact path="about" element={<AboutPage />} />
         <Route
           exact
           path="profile"
-          element={<UserProfile removeItem={removeItem} user={user} userItems={userItems} setUser={setUser} />}
+          element={
+            <UserProfile
+              removeItem={removeItem}
+              user={user}
+              userItems={userItems}
+              setUser={setUser}
+            />
+          }
         />
-        <Route exact path="contribution" element={<Form addItem={addItem} user={user} />} />
+        <Route
+          exact
+          path="contribution"
+          element={<Form addItem={addItem} user={user} />}
+        />
         <Route
           exact
           path="craft/:craftId"
