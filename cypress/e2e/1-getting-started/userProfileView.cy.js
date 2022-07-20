@@ -5,7 +5,7 @@ import {
 } from "../utils/graphql-test-utils";
 
 describe("User Login and Profile Page spec", () => {
-  it("Should be able to go to the profile page, navigate to the login, sign in as a user, go back to the profile page logged in, display user info and inventory, add an item, delete an item, change profile colors, and log out", () => {
+  beforeEach(() => {
     cy.intercept(
       "POST",
       "https://craft-circle-be.herokuapp.com/graphql",
@@ -74,7 +74,6 @@ describe("User Login and Profile Page spec", () => {
         }
       }
     );
-
     cy.intercept(
       "POST",
       "https://craft-circle-be.herokuapp.com/graphql",
@@ -120,16 +119,24 @@ describe("User Login and Profile Page spec", () => {
       }
     );
     cy.visit("http://localhost:3000/");
-    // cy.wait("@gqlgetAUserQuery");
-    cy.wait("@gqlgetItemsQuery");
     cy.get(".nav-bar").should("exist");
-
     cy.get(".nav-button").eq(2).click();
     cy.get("button").eq(3).click();
+  });
 
+  it("Should be able to go to the profile page, navigate to the login, and sign in as a user", () => {
     cy.get("input").eq(0).type("tanna.schmeler@example.net");
     cy.get("input").eq(1).type("password");
     cy.get("button").eq(3).click();
+    cy.url().should("include", "/profile");
+  });
+
+  it("Should be able to go to the profile page, navigate to the login, and display an error if the login info is incorrect", () => {
+    cy.get("input").eq(0).type("tanna.schmeler@example.net");
+    cy.get("input").eq(1).type("passwwwwwwword");
+    cy.get("button").eq(3).click();
+    cy.url().should("include", "/login");
+    cy.contains("Invalid email or password. Please try again.");
   });
 });
 
