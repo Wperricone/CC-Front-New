@@ -52,26 +52,22 @@ function App() {
 
   const [allItems, setAllItems] = useState([]);
   const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   if (data && data.items) {
-  //     setAllItems(data.items);
-  //   }
-  // }, [data]);
+  const [userItems, setUserItems] = useState([])
 
   useEffect(() => {
     if (allCraftItems.data && allCraftItems.data.items) {
-      //setUser(currentUser.data);
       setAllItems(allCraftItems.data.items);
     }
   }, [allCraftItems.data]);
 
   const loginUser = (userData) => {
     setUser(userData);
+    setUserItems(userData.items);
   };
 
   const addItem = (item) => {
     setAllItems([...allItems, item])
+    setUserItems([...userItems, item])
   }
 
   if (loading) return <LoadingPage />;
@@ -89,7 +85,7 @@ function App() {
         <Route
           exact
           path="profile"
-          element={<UserProfile user={user} setUser={setUser} />}
+          element={<UserProfile user={user} userItems={userItems} setUser={setUser} />}
         />
         <Route exact path="contribution" element={<Form addItem={addItem} user={user} />} />
         <Route

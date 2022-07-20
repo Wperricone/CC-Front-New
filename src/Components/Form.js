@@ -65,8 +65,8 @@ const Form = ({ addItem, user }) => {
             userId: user.id,
         },
       }).then((response) => {
-        console.log("Response:", response.data.createItem.item);
         addItem(response.data.createItem.item)
+
       })
     } else {
       setMissingInfo(true);
