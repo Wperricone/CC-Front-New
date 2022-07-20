@@ -5,7 +5,7 @@ import Button from "./Button";
 import ColorChanger from "./ColorChanger";
 import InventoryContainer from "./InventoryContainer";
 
-const UserProfile = ({ user, setUser }) => {
+const UserProfile = ({ user, userItems, setUser, removeItem }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentColor, setCurrentColor] = useState("craftBlue");
 
@@ -63,7 +63,7 @@ const UserProfile = ({ user, setUser }) => {
       <SectionHeader style={{ color: colors[currentColor] }}>
         Crafts I'm Offering
       </SectionHeader>
-      <InventoryContainer color={currentColor} data={user.items} />
+      <InventoryContainer removeItem={removeItem} color={currentColor} data={userItems} />
       <Button name={"Add Craft"} link={"/contribution"} />
       {/* <SectionHeader style={{ color: colors[currentColor] }}>
         Borrowed Supplies

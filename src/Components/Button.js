@@ -26,12 +26,12 @@ const StyledButton = styled.button`
   background: white;
   color: ${colors.craftGreen};
   box-shadow: 5px 5px 0px ${colors.craftGreen};
-  &: hover {
+  &:hover {
     cursor: pointer;
     color: ${colors.craftOrange};
     box-shadow: 5px 5px 0px ${colors.craftOrange};
   }
-  &: active {
+  &:active {
     margin-top: 5px;
     margin-left: 5px;
     box-shadow: 0px 0px 0px;

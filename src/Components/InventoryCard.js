@@ -5,7 +5,7 @@ import Popup from "reactjs-popup";
 import ToggleSwitch from "./ToggleSwitch";
 import PopupModal from "./PopupModal";
 
-const InventoryCard = ({ name, amount, color }) => {
+const InventoryCard = ({ name, amount, color, id, removeItem }) => {
   const [currentlyActive, setActiveStatus] = useState("list");
 
   return (
@@ -35,7 +35,7 @@ const InventoryCard = ({ name, amount, color }) => {
           nested
           closeOnDocumentClick
         >
-          {(close) => <PopupModal close={close} />}
+          {(close) => <PopupModal removeItem={removeItem} id={id} close={close} />}
         </StyledPopup>
       </ItemBoxDiv>
     </ItemCardSection>
@@ -51,7 +51,7 @@ const ItemCardImg = styled.img`
 `;
 
 const ItemH4 = styled.h4`
-  font-size: 20pt;
+  font-size: 15pt;
   margin: 0;
 `;
 const ItemP = styled.p`
@@ -113,7 +113,7 @@ const DeleteButton = styled.button`
   padding-left: 10px;
   padding-right: 10px;
   height: 25px;
-  &: hover {
+  &:hover {
     cursor: pointer;
     color: ${colors.craftBlack};
   }

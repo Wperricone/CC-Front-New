@@ -2,11 +2,12 @@ import styled from "styled-components";
 import React from "react";
 import InventoryCard from "./InventoryCard";
 
-const InventoryContainer = ({ data, color }) => {
+const InventoryContainer = ({ data, color, removeItem }) => {
   const items = data.map((item) => {
     return (
       <InventoryCard
         key={item.id}
+        removeItem={removeItem}
         id={item.id}
         name={item.name}
         amount={item.amount}
@@ -29,7 +30,7 @@ const ItemContainerSection = styled.section`
   padding: 5vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
+  gap: 50px;
   justify-items: center;
   align-items: center;
   margin-bottom: 10vh;
