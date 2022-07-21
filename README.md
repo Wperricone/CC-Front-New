@@ -1,7 +1,4 @@
 # Craft Circle 
-<!-- ![languages](https://img.shields.io/github/languages/top/ShermanA-13/gear-up-fe?color=red)
-![rspec](https://img.shields.io/gem/v/rspec?color=blue&label=rspec) -->
-<!-- ![simplecov](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov) -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -14,13 +11,9 @@
 ![Cypress](https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white)
 ![Circle CI](https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white)
 ![GH Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)
-
+![heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 [![All Contributors](https://img.shields.io/badge/contributors-6-orange.svg?style=flat)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-![heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
-<!-- ![miro](https://img.shields.io/badge/Miro-050038?style=for-the-badge&logo=Miro&logoColor=white) -->
-<!-- ![postgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) -->
 
 <hr>
 
@@ -30,8 +23,10 @@
 <hr>
 
 ## **Background and Description**
-<a href="" **Craft Circle**</a><br><br>
+<a href="https://craft-circle.herokuapp.com/" >**Craft Circle**</a><br><br>
 Craft Circle is an online community where crafters can arrange cost-free trade of tools and supplies in an effort to make creativity more accessible.
+
+To visit the Craft Circle GitHub organization, click [here](https://github.com/Craft-Circle).
 
 Using __Craft Circle__, users are able to:
 
@@ -41,8 +36,9 @@ Using __Craft Circle__, users are able to:
 - Browse available items and email crafters to arrange trade
 - Search for specific items
 - Filter through available items using any of the category tiles. 
--[Cract Circle UI](<https://github.com/Craft-Circle/craft-circle-ui>) web application that uses [Craft Circle BE](<https://github.com/Craft-Circle/craft_circle_be>) is the "Back End" application that acts as a microservice.
-- [MiroBoard/Figmaboard](<https://www.figma.com/files/project/60880304/Craft-Circle?fuid=1042180732312868322>)
+- [Craft Circle UI](<https://github.com/Craft-Circle/craft-circle-ui>) web application that uses [Craft Circle BE](<https://github.com/Craft-Circle/craft_circle_be>) is the "Back End" application that acts as a microservice.
+- [Figmaboard](<https://www.figma.com/files/project/60880304/Craft-Circle?fuid=1042180732312868322>)
+- [Adobe XD Wireframe](https://xd.adobe.com/view/402e6baa-366d-4607-baab-bce8db644e96-157d/)
 
 ## **Table of Contents**
 - [Background and Description](#background-and-description)
@@ -52,7 +48,6 @@ Using __Craft Circle__, users are able to:
     - [Packages Utilized](#packages-utilized)
     - [APIs](#apis-consumed)
     - [SetUp](#setup)
-- [Heroku Setup](#heroku-setup)
 - [Contributors](#contributors-)
 
 
@@ -60,7 +55,7 @@ Using __Craft Circle__, users are able to:
 
 ## **Learning Goals**
 ### [Capstone Project](<https://mod4.turing.edu/projects/capstone/index.html>)
-In this project, engineers collaborate on cross-functional teams to build their first full-stack application. 
+In this project, engineers collaborate on a cross-functional team to build their first full-stack application. 
 
 
 ## **Requirements and Setup (for Mac):**
@@ -132,10 +127,6 @@ $ npm start
 ```shell
 $ npm run cypress
 ```
-
-## **Heroku Setup**
-* Deploying a React App to Heroku is simple! Take your time to read these documents [Heroku Getting Started w/ React](https://blog.heroku.com/deploying-react-with-zero-configuration) to familiarize yourself.<br>
-
 
 ## **Contributors ✨**
 
