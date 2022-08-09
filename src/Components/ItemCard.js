@@ -15,6 +15,7 @@ const ItemCard = ({ name, amount, id, category, user }) => {
         <ItemBoxDiv>
           <ItemH4>{name}</ItemH4>
           <ItemP>Amount: {amount}</ItemP>
+          <ItemP>{category}</ItemP>
           <ItemP>{user}</ItemP>
         </ItemBoxDiv>
       </ItemCardSection>
@@ -36,8 +37,8 @@ const ItemH4 = styled.h4`
 `;
 const ItemP = styled.p`
   font-size: 16pt;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 const ItemBoxDiv = styled.div`
