@@ -6,7 +6,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client
 import { BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
-  uri: 'https://craft-circle-be.herokuapp.com/graphql',
+  uri: 'https://newcc.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
 
